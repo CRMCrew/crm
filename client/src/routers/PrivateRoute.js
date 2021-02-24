@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import { loadData } from '../actions/userActions';
 import Cookies from 'universal-cookie';
-import Header from '../components/Secured/Header/Header';
 
 const cookie = new Cookies();
 
@@ -20,6 +19,7 @@ export const PrivateRoute = ({
       loadData(token);
     }
   }, []);
+
   return (
     <Route
       {...rest}

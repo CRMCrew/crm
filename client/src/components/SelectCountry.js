@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SelectCountry = ({ value, onChange, disabled, name = 'country' }) => {
-  console.log(value);
   return (
     <select
       id={name}
