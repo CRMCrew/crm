@@ -4,6 +4,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const router = new express.Router();
 require('./db/mongoose');
+const path = require('path');
 const userRouter = require('./routers/userRouter');
 const customerRouter = require('./routers/customerRouter');
 const commentRouter = require('./routers/commentsRouter');
@@ -42,8 +43,12 @@ app.use('/customers-logs', customerLogsRouter);
 app.use('/customers-inventory', customerInventoryRouter);
 app.use('/deposit-logs/', depositLogsRouter);
 
+// serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 app.listen(PORT, () => {
