@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js -w"
+    "start": "node server.js",
+    "dev" : "nodemon server.js -w",
+    "build" : "cd client && npm run build",
+    "install-client" : "cd client && npm install",
+    "heroku-postbuild" : "npm run install-client && npm run build"
   },
   "keywords": [],
   "author": "",

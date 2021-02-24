@@ -42,7 +42,10 @@ app.use('/customers-logs', customerLogsRouter);
 app.use('/customers-inventory', customerInventoryRouter);
 app.use('/deposit-logs/', depositLogsRouter);
 
-app.get('*', function (req, res) {});
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 app.listen(PORT, () => {
   console.log(`Server is up and listening on port ${PORT}`);
 });
