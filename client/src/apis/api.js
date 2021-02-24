@@ -5,7 +5,7 @@ const cookie = new Cookies();
 const token = cookie.get('token');
 
 export default axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://crm-server-001.herokuapp.com',
   headers: {
     'Authorization': `Bearer ${cookie.get('token')}`,
   },
