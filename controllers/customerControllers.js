@@ -98,6 +98,7 @@ const getCustomerDetails = async (req, res) => {
   const data = await Customer.findById(id)
     .populate('owner')
     .populate('comments');
+  console.log(data);
   res.send(data);
 };
 

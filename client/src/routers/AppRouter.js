@@ -72,14 +72,12 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
       <div class='customer-area'>
         <CustomerHeader />
         <Switch location={location} key={location.key}>
-          <PublicRoute path='/Home' component={HomePage} />
+          <PublicRoute path='/' component={HomePage} />
           <PublicRoute path='/home/' component={HomePage} />
         </Switch>
       </div>
     );
   };
-
-  console.log(isCustomerAuth);
 
   if (isCustomerAuth) {
     return customerPrivateRender();

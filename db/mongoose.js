@@ -2,6 +2,7 @@
 //   'mongodb+srv://moti:data3enterWordpress@cluster0.7tihz.mongodb.net/data-center?retryWrites=true&w=majority';
 const connection =
   process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/data-center';
+console.log(connection);
 const mongoose = require('mongoose');
 const options = {
   useNewUrlParser: true,
