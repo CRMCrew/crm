@@ -34,7 +34,6 @@ export default (state = {}, action) => {
     case 'DELETE_INVENTORY_OFFER': {
       const { group, offerId } = action.payload;
       group.offers = group.offers.filter((x) => x._id !== offerId);
-      console.log('state', state);
       const newInv = { ...state }.inventories.map((g) => {
         if (g._id == group._id) {
           g.offers = group.offers;

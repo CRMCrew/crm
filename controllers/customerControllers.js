@@ -41,7 +41,6 @@ const validateToken = async (req, res) => {
 
 const deposit = async (req, res) => {
   const { _id, amount } = req.body;
-  console.log(req.body);
   try {
     const response = await Customer.findOneAndUpdate(
       { _id },
@@ -98,7 +97,6 @@ const getCustomerDetails = async (req, res) => {
   const data = await Customer.findById(id)
     .populate('owner')
     .populate('comments');
-  console.log(data);
   res.send(data);
 };
 

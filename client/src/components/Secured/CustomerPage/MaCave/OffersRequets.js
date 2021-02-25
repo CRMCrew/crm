@@ -33,7 +33,6 @@ const OffersRequets = (props) => {
   };
 
   const acceptOffer = (group, offer) => {
-    console.log(group);
     const balance = offer.offer;
     props.updateGroup(group, { status: 3 });
     props.updateBalance(props.customer._id, balance);
@@ -57,7 +56,6 @@ const OffersRequets = (props) => {
   };
 
   const renderInventory = () => {
-    console.log('rendering');
     return (
       currentGroups &&
       currentGroups.map((group) => {

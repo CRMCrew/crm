@@ -18,7 +18,6 @@ const Deposits = ({ customer, user }) => {
         `/deposit-logs/get-by-customer/${customer.id}`
       );
 
-      console.log('data', data);
       setLogs(data);
     };
     newDeposit = {

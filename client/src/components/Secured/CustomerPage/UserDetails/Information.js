@@ -13,7 +13,6 @@ const Information = (props) => {
   const onChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, ' ', value);
     setCustomer({ ...customer, [name]: value });
   };
 

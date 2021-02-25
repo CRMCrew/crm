@@ -39,8 +39,6 @@ export const deleteInventoryOffer = ({ group, offerId }) => async (
     }
   );
 
-  console.log('data', data);
-
   dispatch({
     type: 'DELETE_INVENTORY_OFFER',
     payload: { group, offerId },
@@ -52,7 +50,6 @@ export const updateGroup = (group, updates) => async (dispatch) => {
   //   `customers-inventory/update-one/${group._id}`,
   //   updates
   // );
-  console.log(updates);
 
   dispatch({
     type: 'UPDATE_GROUP_STATUS',
@@ -61,7 +58,6 @@ export const updateGroup = (group, updates) => async (dispatch) => {
 };
 
 export const updateBalance = (_id, balance) => async (dispatch, state) => {
-  console.log('1', state);
   const { depositData } = await api.patch('/customers/deposit/', {
     _id: _id,
     amount: balance,

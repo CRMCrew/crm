@@ -21,22 +21,6 @@ import Cookies from 'universal-cookie';
 
 const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();
-  const cookie = new Cookies();
-
-  // (function () {
-  //   let token = `Bearer ${cookie.get('token')}`;
-  //   // token = cookie.get('token');
-  //   console.log('here1', axios.defaults.headers.common['Authorization']);
-  //   if (token) {
-  //     axios.defaults.headers.common['Authorization'] = token;
-  //     console.log('here2', axios.defaults.headers.common['Authorization']);
-  //   } else {
-  //     axios.defaults.headers.common['Authorization'] = null;
-  //     /*if setting null does not remove `Authorization` header then try
-  //       delete axios.defaults.headers.common['Authorization'];
-  //     */
-  //   }
-  // })();
 
   const authRender = () => {
     return (

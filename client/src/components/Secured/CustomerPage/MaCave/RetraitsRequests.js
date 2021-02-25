@@ -32,7 +32,6 @@ const RetraitsRequests = (props) => {
       .filter((x) => x.status === 2)
       .map((group) => ({ _id: group._id, inventory: group.inventory }));
     setGroups(newGroups);
-    console.log('customers', newGroups);
   }, [props.customer]);
 
   const renderHeaders = () => {

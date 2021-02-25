@@ -11,7 +11,6 @@ import Deposits from './Deposits';
 
 const CustomersDetails = (props) => {
   const id = props.match.params.id;
-  console.log('in customers');
 
   const [selectedTab, setSelectedTab] = useState('1');
   const [customer, setCustomer] = useState(null);
@@ -20,7 +19,6 @@ const CustomersDetails = (props) => {
     try {
       const { data } = await api.get(`/comments/${id}`);
       const response = await api.get(`/customers/details/${id}`);
-      console.log('data', response);
       setCustomer(response.data);
       setComments(data);
     } catch (err) {

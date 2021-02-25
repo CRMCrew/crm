@@ -31,7 +31,6 @@ const SwitchCustomerLogs = ({ customer }) => {
     return (
       logs &&
       logs.map((log) => {
-        console.log(log.ownerFrom);
         const date = moment(log.createdAt).format('DD-MM-YY HH:mm:ss');
         return (
           <div key={log._id} className='customers-details__history'>

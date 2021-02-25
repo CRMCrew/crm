@@ -33,7 +33,6 @@ const PendingRequests = () => {
     });
 
     setGroups(groups.filter((g) => g._id !== group._id));
-    console.log(isWithDeposit);
   };
 
   const deleteProduct = async (group) => {

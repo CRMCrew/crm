@@ -16,7 +16,6 @@ const ApprovedInventoryRequests = (props) => {
       .filter((x) => x.status === 1)
       .map((group) => group.inventory);
     setGroups(groups);
-    console.log(' effect', groups);
   }, []);
 
   useEffect(() => {
@@ -41,7 +40,6 @@ const ApprovedInventoryRequests = (props) => {
 
   const moveToRetrait = () => {
     const temp = { ...currentGroup, status: 2 };
-    console.log(temp._id);
     setIsVisible(false);
     props.updateGroup(temp, { status: 2 });
   };

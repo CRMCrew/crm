@@ -1,11 +1,9 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User.js');
 const addUser = async (req, res) => {
-  console.log('adding');
   const use = new User(req.body);
   try {
     const user = await use.save();
-    console.log('user', user);
     res.status(201).send(user);
   } catch (err) {
     console.log('err', err);
@@ -72,7 +70,6 @@ const logOutAll = async ({ user, token }, res) => {
 };
 
 const saveUser = async (req, res) => {
-  console.log('heere');
   const { _id, update } = req.body;
 
   if (parseInt(_id) === 0) {
