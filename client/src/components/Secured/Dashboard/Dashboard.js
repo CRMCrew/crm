@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Loader from '../../Loader/Loader';
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
-import api from '../../../apis/api';
 
 import CustomerLogs from './DCustomersLogs/CustomersLogs';
 import DWaitingRequests from './NewPending/DWaitingRequests';
