@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import SelectCountry from '../SelectCountry';
@@ -35,13 +35,11 @@ const Register = () => {
   };
 
   const registerCustomer = async () => {
-    let response = null;
     try {
-      response = await api.post('/customers/register', formData);
+      await api.post('/customers/register', formData);
       setServerResponse(1);
       setFormData(tempCustomer);
     } catch (err) {
-      const { data } = err.response;
       setServerResponse(2);
     }
   };

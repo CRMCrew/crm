@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { motion } from 'framer-motion';
 import { login } from '../../actions/customersActions';
@@ -72,6 +72,7 @@ const UserLogin = (props) => {
   useEffect(() => {
     if (isSignedIn) {
       // saveLog();
+      console.log('here');
       // window.location = '/home';
     }
   }, [isSignedIn]);
@@ -86,7 +87,8 @@ const UserLogin = (props) => {
 
     if (!hasError) {
       try {
-        const result = props.login(userDetails);
+        props.login(userDetails);
+        console.log('login');
       } catch (e) {
         console.log('error: ', e);
       }

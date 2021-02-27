@@ -1,18 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { motion } from 'framer-motion';
-
-const containerVariant = {
-  hidden: {
-    scale: 0,
-    borderRadius: 1200,
-  },
-  visible: {
-    scale: 1,
-    borderRadius: 1,
-    transition: { duration: 0.5, when: 'beforeChildren' },
-  },
-};
 
 const fadeInVariation = {
   hidden: {
@@ -21,24 +9,6 @@ const fadeInVariation = {
   visible: {
     opacity: 1,
     transition: { duration: 0.5 },
-  },
-};
-
-const cardVariant = {
-  hidden: {
-    top: '-100vh',
-    // opacity: 0,
-  },
-  visible: {
-    // opacity: 0.9,
-    top: '40%',
-    transition: {
-      duration: 0.5,
-      when: 'beforeChildren',
-      type: 'spring',
-      damping: 12,
-      stiffness: 100,
-    },
   },
 };
 

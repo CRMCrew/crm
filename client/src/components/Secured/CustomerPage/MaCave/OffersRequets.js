@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { motion, AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
-import { tdItem, tdOpacityVariant } from '../variations';
 import { formatMoney } from '../../../../utils/formatting';
 import {
   deleteInventoryOffer,
@@ -60,48 +58,30 @@ const OffersRequets = (props) => {
       currentGroups &&
       currentGroups.map((group) => {
         const date = moment(group.createdAt).format('DD-MM-YY HH:mm:ss');
-        return (
-          //   <motion.tr key={group._id} variants={tdItem}>
-          //     {group.inventory.items.map((item, index) => {
-          //       let text = item.text;
-          //       if (index === 3) {
-          //         text = formatMoney(item.text);
-          //       }
-          //       return (
-          //         <AnimatePresence>
-          //           <motion.td variants={tdOpacityVariant}>{`${text}`}</motion.td>
-          //         </AnimatePresence>
-          //       );
-          //     })}
-          //     <td className='home-page-container__add-item' onClick={() => {}}>
-          //       {date}
-          //     </td>
-          //   </motion.tr>
-          group.offers.map((offer) => {
-            return (
-              <tr key={offer._id}>
-                <td>{group.inventory.items[0].text}</td>
-                <td>{group.inventory.items[1].text}</td>
-                <td>{group.inventory.items[2].text}</td>
-                <td>{formatMoney(offer.price)}</td>
-                <td>{formatMoney(offer.offer)}</td>
-                <td>{date}</td>
-                <td
-                  className='home-page-container__add-item bg-in-success'
-                  onClick={() => acceptOffer(group, offer)}
-                >
-                  Accept
-                </td>
-                <td
-                  className='home-page-container__add-item bg-in-warning'
-                  onClick={() => deleteOffer(group, offer._id)}
-                >
-                  Reject
-                </td>
-              </tr>
-            );
-          })
-        );
+        return group.offers.map((offer) => {
+          return (
+            <tr key={offer._id}>
+              <td>{group.inventory.items[0].text}</td>
+              <td>{group.inventory.items[1].text}</td>
+              <td>{group.inventory.items[2].text}</td>
+              <td>{formatMoney(offer.price)}</td>
+              <td>{formatMoney(offer.offer)}</td>
+              <td>{date}</td>
+              <td
+                className='home-page-container__add-item bg-in-success'
+                onClick={() => acceptOffer(group, offer)}
+              >
+                Accept
+              </td>
+              <td
+                className='home-page-container__add-item bg-in-warning'
+                onClick={() => deleteOffer(group, offer._id)}
+              >
+                Reject
+              </td>
+            </tr>
+          );
+        });
       })
     );
   };

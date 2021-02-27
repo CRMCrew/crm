@@ -5,9 +5,7 @@ import { usePresence } from 'framer-motion';
 import { campaigns, statuses } from '../../../utils/static_data';
 import FormModel from '../../FormModel/FormModel';
 import SelectStatus from '../../SelectStatus';
-import { motion, AnimatePresence } from 'framer-motion';
 import { getStatusClassName } from './utils/customers';
-import api from '../../../apis/api';
 import CustomersComments from './CustomersComments';
 import CommentsHistory from './CommentsHistory';
 

@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 
 const initLogin = async (req, res) => {
   try {
-    console.log('here');
-
     const customer = await Customer.findByCredentials(
       req.body.email,
       req.body.password
@@ -102,9 +100,24 @@ const getCustomerDetails = async (req, res) => {
   res.send(data);
 };
 
+const logOut = async (req, res) => {
+  const { customer } = req.body;
+
+  console.log(customer._id);
+
+  try {
+    console.log('customer', customer._id);
+    await Customer.updateOne({ _id: customer._id }, { tokens: [] });
+    console.log(' logging out');
+    res.status(202).send({ 'message': 'logged out' });
+  } catch (error) {
+    res.send('error' + error);
+  }
+};
+
 module.exports = {
   registerCustomer,
-
+  logOut,
   getByOwner,
   updateById,
   getCustomerDetails,

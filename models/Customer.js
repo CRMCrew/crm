@@ -24,6 +24,14 @@ const customerSchema = new mongoose.Schema(
     address: { type: String, default: '', trim: true },
     postalCode: { type: String, default: '', trim: true },
     ville: { type: String, default: '', trim: true },
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
   {
     toObject: {
@@ -59,10 +67,13 @@ customerSchema.methods.generateAuthToken = async function () {
     }
   );
   try {
-    customer.tokens = user.tokens.concat({ token });
-    (' saving');
-    customer.save();
-  } catch (error) {}
+    customer.tokens = customer.tokens.concat({ token });
+    await Customer.updateOne({ _id: customer._id }, { tokens: { token } });
+
+    console.log('custoemr', customer._id);
+  } catch (error) {
+    console.log(error);
+  }
   return token;
 };
 

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
-
-import api from '../../../apis/api';
 
 const CommentsHistory = ({ commentsList, deleteComment }) => {
   const [comments, setComments] = useState(commentsList);

@@ -21,12 +21,12 @@ const ManageHeaders = () => {
   };
 
   const deleteHeader = async (header) => {
-    const { data } = await api.post('/headers/remove-header', { header });
+    await api.post('/headers/remove-header', { header });
   };
 
   const createHeader = async (header) => {
     try {
-      const { data } = await api.post('/headers/add-header', { header });
+      await api.post('/headers/add-header', { header });
     } catch (err) {
       console.log(err);
     }

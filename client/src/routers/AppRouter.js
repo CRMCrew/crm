@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Login from '../components/Login/Login';
 import UserLogin from '../components/Login/UserLogin';
@@ -73,7 +73,9 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
       <div class='customer-area'>
         <CustomerHeader />
         <Switch location={location} key={location.key}>
-          <PublicRoute path='/' component={HomePage} />
+          <Route exact path='/'>
+            <Redirect to='/home' />
+          </Route>
           <PublicRoute path='/home/' component={HomePage} />
         </Switch>
       </div>

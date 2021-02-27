@@ -22,6 +22,7 @@ router.patch('/update', auth, updateById);
 router.patch('/update-many', updateManyById);
 router.get('/details/:id', auth, getCustomerDetails);
 router.patch('/deposit', deposit);
+router.post('/logout', logOut);
 // create fake customers (temporary)
 
 const faker = require('faker');
@@ -51,7 +52,7 @@ const status = [
   'interested',
 ];
 router.post('/createfake', async (req, res) => {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 1; i++) {
     const customerTemplate = {
       'firstName': faker.name.firstName(),
       'lastName': faker.name.lastName(),

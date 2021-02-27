@@ -27,7 +27,7 @@ const CustomersDetails = (props) => {
   };
 
   const deleteComment = async (comment) => {
-    const { data } = await api.delete(`/comments/delete/${comment._id}`);
+    await api.delete(`/comments/delete/${comment._id}`);
   };
 
   const updateCustomer = async () => {
@@ -47,7 +47,7 @@ const CustomersDetails = (props) => {
       updates = { ...updates, userPassword: customer.userPassword };
     }
 
-    const { data } = await api.patch('customers/update/', {
+    await api.patch('customers/update/', {
       _id: customer._id,
       update: updates,
     });

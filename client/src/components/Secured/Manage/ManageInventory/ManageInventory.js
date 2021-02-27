@@ -16,7 +16,6 @@ const ManageInventory = () => {
 
       return group;
     });
-
   };
 
   const getHeaders = async () => {
@@ -40,7 +39,7 @@ const ManageInventory = () => {
   const deleteGroup = async (group) => {
     const id = group.id;
 
-    const { data } = await api.get(`/inventroy/delete-group/${id}`);
+    await api.get(`/inventroy/delete-group/${id}`);
     setGroups(groups.filter((x) => x._id !== id));
 
     toast.warning(`👍 Group ${group.items[0].text} deleted.`);
@@ -59,7 +58,7 @@ const ManageInventory = () => {
 
   const editGroup = async (id) => {
     const group = groups.find((g) => g._id === id);
-    const { data } = await api.patch(`/inventroy/update-group/${id}`, {
+    await api.patch(`/inventroy/update-group/${id}`, {
       items: group.items,
     });
 

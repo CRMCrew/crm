@@ -31,12 +31,9 @@ export const addInventoryGroup = (group) => async (dispatch) => {
 export const deleteInventoryOffer = ({ group, offerId }) => async (
   dispatch
 ) => {
-  const { data } = await api.post(
-    `customers-inventory/delete-offer/${group._id}`,
-    {
-      _id: offerId,
-    }
-  );
+  await api.post(`customers-inventory/delete-offer/${group._id}`, {
+    _id: offerId,
+  });
 
   dispatch({
     type: 'DELETE_INVENTORY_OFFER',
@@ -57,7 +54,7 @@ export const updateGroup = (group, updates) => async (dispatch) => {
 };
 
 export const updateBalance = (_id, balance) => async (dispatch, state) => {
-  const { depositData } = await api.patch('/customers/deposit/', {
+  await api.patch('/customers/deposit/', {
     _id: _id,
     amount: balance,
   });
@@ -80,9 +77,10 @@ export const loadData = (token) => async (dispatch) => {
   }
 };
 
-export const logOut = () => async (dispatch) => {
+export const logOut = (customer) => async (dispatch) => {
   try {
-    const { data } = await api.post('customers/logOut');
+    console.log('logging out actuion', customer);
+    await api.post('/customers/logOut', { customer });
     dispatch({
       type: 'CUSTOMER_LOG_OUT',
     });

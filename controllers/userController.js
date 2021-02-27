@@ -18,7 +18,6 @@ const initLogin = async (req, res) => {
       req.body.password
     );
 
-    console.log(' yser', user);
     const token = await user.generateAuthToken();
     res
       .status(202)
@@ -42,7 +41,6 @@ const validateToken = async (req, res) => {
     res.send(user);
   } catch (err) {
     res.status(400).json(err);
-    bpm;
   }
 };
 
@@ -53,8 +51,8 @@ const getAllUsers = async (req, res) => {
 
 const logOut = async ({ user, token }, res) => {
   try {
-    // user.tokens = user.tokens.filter((temp) => temp.token !== token);
-    // await user.save();
+    user.tokens = user.tokens.filter((temp) => temp.token !== token);
+    await user.save();
     res.status(202).send({ 'message': 'logged out' });
   } catch (error) {
     res.send('error' + error);

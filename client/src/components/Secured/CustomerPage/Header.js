@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import img from '../../../images/logo.png';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { formatMoney } from '../../../utils/formatting';
-
+import { logOut } from '../../../actions/customersActions';
 const Header = (props) => {
+  const setLogOut = () => {
+    console.log('logout');
+    props.logOut(props.customer);
+    window.location = '/';
+  };
   const { customer } = props;
   return (
     <header className='header-container'>
@@ -15,15 +20,15 @@ const Header = (props) => {
       </div>
       <div className='header-container__toolbar'>
         <div>
-          <div>
+          <div className='header-container__item'>
             <i className='fas fa-user'></i>
             {customer.firstName} {customer.lastName}
           </div>
-          <div>
+          <div className='header-container__item'>
             <i class='fas fa-money-bill'></i>
             {formatMoney(customer.balance)}
           </div>
-          <div>
+          <div className='header-container__item' onClick={setLogOut}>
             <i className='fas fa-sign-out-alt header-container__icon-2'></i>
             (Déconnexion)
           </div>
@@ -39,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { logOut })(Header);

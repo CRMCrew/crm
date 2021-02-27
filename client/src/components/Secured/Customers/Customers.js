@@ -16,8 +16,6 @@ import Filters from './Filters';
 import SellerDropdown from '../Custom/SellerDropdown/SellerDropdown';
 
 let totalPages = 1;
-let firstLoad = false;
-
 const Customers = (props) => {
   const sFilters = {
     firstName: '',
@@ -43,9 +41,8 @@ const Customers = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalRecords, setTotalRecords] = useState(0);
-  const [isUserSelected, setUserSelected] = useState(false);
   const [orderBy, setOrderBy] = useState('_id');
-  const [limit, setLimit] = useState(100);
+  const [limit] = useState(100);
   const [users, setUsers] = useState(null);
   const fnRef = useRef();
   const lnRef = useRef();
@@ -54,8 +51,6 @@ const Customers = (props) => {
 
   const getByOwner = async (filters) => {
     setIsLoading(true);
-    firstLoad = true;
-
     try {
       const { data } = await api.post('/customers/get-by-owner', {
         filters,
@@ -176,7 +171,7 @@ const Customers = (props) => {
     ) {
       setFormError('All fields must be set.');
     } else {
-      const { data } = await api.post('/customers/register', newCustomer);
+      await api.post('/customers/register', newCustomer);
       setIsNewUser(false);
       toast.info('🤑 Customer created.', {
         position: 'bottom-left',
@@ -193,7 +188,7 @@ const Customers = (props) => {
 
   const deleteComment = async ({ _id }) => {
     try {
-      const { data } = await api.delete(`/comments/delete/${_id}`);
+      await api.delete(`/comments/delete/${_id}`);
 
       const newCustomer = customers.map((c) => {
         if (c.comments.length > 0) {
@@ -245,7 +240,7 @@ const Customers = (props) => {
     );
 
     try {
-      const { data } = await api.patch('customers/update', {
+      await api.patch('customers/update', {
         _id: customer._id,
         update: { status: customer.status },
       });
