@@ -7,7 +7,7 @@ const CustomerLogItem = ({ log, index }) => {
     ? `${log.owner.firstName} ${log.owner.lastName}`
     : 'UnControlled';
   return !log.customer ? null : (
-    <div className={`customers-log__item ${index % 2 == 0 ? 'alt' : ''}`}>
+    <div className={`customers-log__item ${index % 2 === 0 ? 'alt' : ''}`}>
       <div>{date}</div>
       <div>
         {log.customer.firstName} {log.customer.lastName}

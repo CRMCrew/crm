@@ -10,10 +10,7 @@ const PendingOfferRequests = () => {
   const [currentGroup, setCurrentGroup] = useState(null);
 
   const addOffer = async (id, updates) => {
-    const { data } = api.post(
-      `/customers-inventory/push-offers/${id}`,
-      updates
-    );
+    api.post(`/customers-inventory/push-offers/${id}`, updates);
   };
   useEffect(() => {
     const getData = async (req, res) => {
@@ -49,9 +46,7 @@ const PendingOfferRequests = () => {
   };
 
   const deleteOrder = async (group) => {
-    const { data } = await api.delete(
-      `customers-inventory/delete/${group._id}`
-    );
+    await api.delete(`customers-inventory/delete/${group._id}`);
     setGroups(groups.filter((g) => g._id !== group._id));
     toast.success('👍 Order deleted.');
   };
@@ -59,7 +54,7 @@ const PendingOfferRequests = () => {
   const deleteOffer = (group, offer) => {
     group.offers = group.offers.filter((x) => x._id !== offer._id);
 
-    setGroups(groups.map((g) => (g._id == group._id ? group : g)));
+    setGroups(groups.map((g) => (g._id === group._id ? group : g)));
     toast.success('👍 Offer deleted.');
   };
   const renderHeader = () => {

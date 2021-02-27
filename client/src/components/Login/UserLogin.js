@@ -85,7 +85,11 @@ const UserLogin = (props) => {
     });
 
     if (!hasError) {
-      props.login(userDetails);
+      try {
+        const result = props.login(userDetails);
+      } catch (e) {
+        console.log('error: ', e);
+      }
     }
   };
 
@@ -96,9 +100,8 @@ const UserLogin = (props) => {
       initial='hidden'
       animate='visible'
     >
-      <Link to='/backoffice/'>back office</Link>
       <div className='login-container__corner-logo'>
-        <img src={logo} alit='logo' />
+        <img src={logo} alt='logo' />
       </div>
       <Bubbles />
       <div className='login-container__login-info mt-15'>

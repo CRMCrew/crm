@@ -154,7 +154,7 @@ const Customers = (props) => {
           if (!c.comments) {
             c.comments = [comment];
           } else {
-            c.comments.push(comment);
+            c.comments.push(data);
           }
         }
         return c;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Loader from '../../Loader/Loader';
+
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 

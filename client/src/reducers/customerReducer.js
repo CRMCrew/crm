@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+const customerReducer = (state = {}, action) => {
   switch (action.type) {
     case 'CUSTOMER_LOG_IN': {
       return { ...action.payload };
@@ -35,7 +35,7 @@ export default (state = {}, action) => {
       const { group, offerId } = action.payload;
       group.offers = group.offers.filter((x) => x._id !== offerId);
       const newInv = { ...state }.inventories.map((g) => {
-        if (g._id == group._id) {
+        if (g._id === group._id) {
           g.offers = group.offers;
         }
         return g;
@@ -50,3 +50,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default customerReducer;

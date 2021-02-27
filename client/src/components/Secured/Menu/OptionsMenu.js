@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import history from '../../../history';
-
-import close from '../../../images/close.svg';
-
 const OptionsMenu = (props) => {
   const [menuItem, setMenuItem] = useState(0);
-  const [subMenuItem, setSubMenuItem] = useState(0);
-  const [isSubMenuOn, setIsSubMenuOn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {}, []);
   const loadPage = (menuItem) => {
@@ -30,6 +24,9 @@ const OptionsMenu = (props) => {
       case 3: {
         history.push('/backoffice/manage/');
         break;
+      }
+      default: {
+        history.push('/backoffice/dashboard');
       }
     }
   };
@@ -54,7 +51,7 @@ const OptionsMenu = (props) => {
 
       <div
         className={`secured-container__menu-item ${
-          menuItem == 0 ? 'secured-container__selected' : ''
+          menuItem === 0 ? 'secured-container__selected' : ''
         }`}
         onClick={() => loadPage(0)}
       >
@@ -89,7 +86,7 @@ const OptionsMenu = (props) => {
       {props.user.role.type.toLocaleLowerCase() === 'admin' && (
         <div
           className={`secured-container__menu-item ${
-            menuItem == 3 ? 'secured-container__selected' : ''
+            menuItem === 3 ? 'secured-container__selected' : ''
           }`}
           onClick={() => loadPage(3)}
         >

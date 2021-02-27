@@ -13,12 +13,10 @@ const CreateCustomer = () => {
   const [currentUser, setCurrentUser] = useState(newCustomer);
   const [formErrors, setFormErrors] = useState(newCustomer);
   const registerCustomer = async () => {
-    let response = null;
     try {
-      response = await api.post('/customers/register', currentUser);
+      await api.post('/customers/register', currentUser);
       toast.success('👍 Customer details was successfully registered.');
     } catch (err) {
-      const { data } = err.response;
       toast.error(
         '⚠️ Error saving customer. Please check if email already exists.'
       );

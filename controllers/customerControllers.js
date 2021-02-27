@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const initLogin = async (req, res) => {
   try {
+    console.log('here');
+
     const customer = await Customer.findByCredentials(
       req.body.email,
       req.body.password

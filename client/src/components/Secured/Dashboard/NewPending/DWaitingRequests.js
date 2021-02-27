@@ -38,7 +38,9 @@ const DWaitingRequests = () => {
         const date = moment(group.expiration).format('DD-MM-YY HH:mm:ss');
 
         return (
-          <div className={`customers-log__item ${index % 2 == 0 ? 'alt' : ''}`}>
+          <div
+            className={`customers-log__item ${index % 2 === 0 ? 'alt' : ''}`}
+          >
             <div>
               {group.customer.firstName} {group.customer.lastName}
             </div>

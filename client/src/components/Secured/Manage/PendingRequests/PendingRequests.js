@@ -18,16 +18,13 @@ const PendingRequests = () => {
   }, []);
 
   const acceptProduct = async (group, isWithDeposit, customer, price) => {
-    const { data } = await api.put(
-      `customers-inventory/update-one/${group._id}`,
-      {
-        status: 1,
-      }
-    );
+    await api.put(`customers-inventory/update-one/${group._id}`, {
+      status: 1,
+    });
 
     if (parseInt(customer.balance) < parseInt(price)) price = customer.balance;
 
-    const { depositData } = await api.patch('/customers/deposit/', {
+    await api.patch('/customers/deposit/', {
       _id: customer.id,
       amount: -1 * price,
     });
@@ -36,9 +33,7 @@ const PendingRequests = () => {
   };
 
   const deleteProduct = async (group) => {
-    const { data } = await api.delete(
-      `customers-inventory/delete/${group._id}`
-    );
+    await api.delete(`customers-inventory/delete/${group._id}`);
     setGroups(groups.filter((g) => g._id !== group._id));
   };
   const renderHeader = () => {

@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { newCustomer } from '../../../../../utils/models';
 import { statuses } from '../../../../../utils/static_data';
 import SellerDropdown from '../../../Custom/SellerDropdown/SellerDropdown';
-import SelectCountry from '../../../../SelectCountry';
 import SelectCampaign from '../../../../SelectCampaign';
 import api from '../../../../../apis/api';
 
@@ -115,7 +114,7 @@ const ImportCustomers = () => {
     return (
       users && (
         <motion.div
-          className='import-customers__list'
+          // className='import-customers__list'
           className='customers__table'
           variants={container}
           initial='hidden'

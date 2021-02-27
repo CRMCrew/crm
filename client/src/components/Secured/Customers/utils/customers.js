@@ -38,6 +38,9 @@ export const getStatusClassName = (customer) => {
       statusClassName = 'bg-blue-light';
       break;
     }
+    default: {
+      statusClassName = 'bg-danger';
+    }
   }
   return statusClassName;
 };

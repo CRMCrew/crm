@@ -16,8 +16,6 @@ import Planning from '../components/Secured/Planning/Planning';
 import OptionsMenu from '../components/Secured/Menu/OptionsMenu';
 import CustomerHeader from '../components/Secured/CustomerPage/Header';
 import BackToTop from '../components/BackToTop/BackToTop';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
 
 const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();

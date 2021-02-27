@@ -18,6 +18,7 @@ const initLogin = async (req, res) => {
       req.body.password
     );
 
+    console.log(' yser', user);
     const token = await user.generateAuthToken();
     res
       .status(202)
@@ -41,6 +42,7 @@ const validateToken = async (req, res) => {
     res.send(user);
   } catch (err) {
     res.status(400).json(err);
+    bpm;
   }
 };
 

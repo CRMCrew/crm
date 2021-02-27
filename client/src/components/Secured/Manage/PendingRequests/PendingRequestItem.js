@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import moment from 'moment';
 import { formatMoney } from '../../../../utils/formatting';
 
@@ -8,7 +8,7 @@ const PendingRequestItem = ({ group, acceptProduct, deleteProduct, index }) => {
   const date = moment(group.expiration).format('DD-MM-YY HH:mm:ss');
   const checkboxRef = useRef(null);
   return (
-    <div className={`customers-log__item ${index % 2 == 0 ? 'alt' : ''}`}>
+    <div className={`customers-log__item ${index % 2 === 0 ? 'alt' : ''}`}>
       <div>
         {group.customer.firstName} {group.customer.lastName}
       </div>

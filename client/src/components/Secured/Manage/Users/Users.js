@@ -57,7 +57,7 @@ const Users = () => {
         _id: currentUser._id,
         update: currentUser,
       });
-      if (currentUser._id != '0') {
+      if (currentUser._id !== '0') {
         setUsers(
           users.map((user) => {
             return user._id === currentUser._id ? { ...currentUser } : user;

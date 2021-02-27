@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOG_IN': {
       return { ...action.payload };
@@ -13,3 +13,4 @@ export default (state = {}, action) => {
       return state;
   }
 };
+export default userReducer;

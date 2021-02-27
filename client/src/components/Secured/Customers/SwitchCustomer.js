@@ -41,7 +41,7 @@ const SwitchCustomer = ({
     if (params.status === -1) params.status = 0;
     if (params.campaign === -1) params.campaign = 0;
     const ids = customers.filter((x) => x.isMarked).map((item) => item._id);
-    const { data } = await api.patch('/customers/update-many', {
+    await api.patch('/customers/update-many', {
       ids,
       updates: params,
     });
@@ -55,8 +55,7 @@ const SwitchCustomer = ({
           customer: customer._id,
         };
       });
-
-    const { data2 } = await api.post('/customers-switch/save-many', logs);
+    await api.post('/customers-switch/save-many', logs);
 
     swithcCustomersSubmit();
   };
