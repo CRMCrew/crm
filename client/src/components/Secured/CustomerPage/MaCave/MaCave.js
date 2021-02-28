@@ -11,6 +11,14 @@ const MaCave = ({ headers, inventories }) => {
     return parseInt(x) === menu ? 'ma-cave__tab--selected' : '';
   };
 
+  useEffect(() => {
+    console.log('test');
+    document.body.classList.add('mycave');
+    return () => {
+      document.body.classList.remove('mycave');
+    };
+  }, []);
+
   const renderTab = () => {
     switch (menu) {
       case 0: {
@@ -26,6 +34,9 @@ const MaCave = ({ headers, inventories }) => {
         return <VentsRequets headers={headers} />;
       }
       case 4: {
+        return <RetraitsRequests headers={headers} />;
+      }
+      default: {
         return <RetraitsRequests headers={headers} />;
       }
     }

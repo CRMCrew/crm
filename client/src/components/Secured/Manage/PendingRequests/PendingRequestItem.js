@@ -28,13 +28,13 @@ const PendingRequestItem = ({ group, acceptProduct, deleteProduct, index }) => {
             )
           }
         >
-          Accept
+          J'accepte
         </button>
         <button
           className='button bg-warning'
           onClick={() => deleteProduct(group)}
         >
-          Reject
+          Rejeter
         </button>
       </div>
       <div className={`textCenter`}>

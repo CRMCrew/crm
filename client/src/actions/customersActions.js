@@ -42,10 +42,7 @@ export const deleteInventoryOffer = ({ group, offerId }) => async (
 };
 
 export const updateGroup = (group, updates) => async (dispatch) => {
-  // const { data } = await api.put(
-  //   `customers-inventory/update-one/${group._id}`,
-  //   updates
-  // );
+  await api.put(`customers-inventory/update-one/${group._id}`, updates);
 
   dispatch({
     type: 'UPDATE_GROUP_STATUS',

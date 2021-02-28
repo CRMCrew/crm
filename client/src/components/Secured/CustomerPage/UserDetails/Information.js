@@ -104,7 +104,9 @@ const Information = (props) => {
         </div>
       </div>
       <div className='user-info__buttons'>
-        <button className='button bg-in-success'>Update details</button>
+        <button className='button bg-in-success'>
+          Mettre à jour les détails
+        </button>
       </div>
     </div>
   );

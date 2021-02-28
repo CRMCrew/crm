@@ -377,19 +377,19 @@ const Customers = (props) => {
         <div className='customers__toolbar-buttons'>
           <button
             className='customers__button button bg-warning'
-            onClick={() => setFilters({ ...filters, status: 1 })}
+            onClick={() => setFilters({ ...filters, status: 0 })}
           >
             New
           </button>
           <button
             className='customers__button button bg-success'
-            onClick={() => setFilters({ ...filters, status: 7 })}
+            onClick={() => setFilters({ ...filters, status: 6 })}
           >
             Deposit
           </button>
           <button
             className='customers__button button bg-blue'
-            onClick={() => setFilters({ ...filters, status: 9 })}
+            onClick={() => setFilters({ ...filters, status: 8 })}
           >
             Interested
           </button>
