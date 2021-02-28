@@ -44,9 +44,16 @@ const MaCave = ({ headers, inventories }) => {
 
   const myCaveCount = inventories.filter((x) => x.status === 1).length;
   const waitingCont = inventories.filter((x) => x.status === 0).length;
-  const offersCount = inventories.filter(
-    (x) => x.status === 1 && x.offers.length > 0
-  ).length;
+  const offersCount = inventories.reduce((acc, curr) => {
+    console.log('curr', curr);
+    if (curr.status === 1 && curr.offers.length > 0) {
+      acc += curr.offers.length;
+    }
+    return acc;
+  }, 0);
+  console.log('offers', offersCount);
+
+  console.log(offersCount);
   const ventsCount = inventories.filter((x) => x.status === 3).length;
   const retaitsCount = inventories.filter((x) => x.status === 2).length;
 

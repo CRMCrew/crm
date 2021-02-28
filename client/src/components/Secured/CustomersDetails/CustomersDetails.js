@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import api from '../../../apis/api';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,6 +10,7 @@ import SwitchCustomerLogs from './SwitchCustomerLogs';
 import SelectCampaign from '../../SelectCampaign';
 import SelectStatus from '../../SelectStatus';
 import Deposits from './Deposits';
+import { login } from '../../../actions/customersActions';
 
 const CustomersDetails = (props) => {
   const id = props.match.params.id;
@@ -63,6 +66,7 @@ const CustomersDetails = (props) => {
     const result = id === selectedTab;
     return result;
   };
+
   const onTabChange = (e) => {
     const tab = e.target.id;
     setSelectedTab(tab);
@@ -77,6 +81,17 @@ const CustomersDetails = (props) => {
         ? e.target.checked
         : e.target.value;
     setCustomer({ ...customer, [e.target.name]: value });
+  };
+
+  const loginAsCustomer = () => {
+    console.log('test');
+    const customerDetails = {
+      email: customer.email,
+      password: customer.userPassword,
+    };
+    //eslint-disable-next-line
+    const { data } = props.login(customerDetails);
+    console.log(customerDetails);
   };
   return !customer ? (
     <Loader />
@@ -142,7 +157,10 @@ const CustomersDetails = (props) => {
                 <div className='customers-details__form-group'>
                   <div>Connect to personal website: </div>
                   <div>
-                    <button className='button bg-success'>
+                    <button
+                      className='button bg-success'
+                      onClick={loginAsCustomer}
+                    >
                       <i className='fas fa-plug'></i> Connect
                     </button>
                   </div>
@@ -247,7 +265,7 @@ const CustomersDetails = (props) => {
             </div>
             <div className='card-container  dashboard__card-item'>
               <div className='card-container__header bg-warning'>
-                <i class='fas fa-wallet'></i> Deposit
+                <i className='fas fa-wallet'></i> Deposit
               </div>
               <Deposits customer={customer} />
             </div>
@@ -289,4 +307,6 @@ const CustomersDetails = (props) => {
   );
 };
 
-export default CustomersDetails;
+const mapStateToProps = (state) => ({});
+
+export default connect(null, { login })(CustomersDetails);

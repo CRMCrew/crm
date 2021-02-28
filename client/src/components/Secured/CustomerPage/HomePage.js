@@ -171,7 +171,7 @@ const HomePage = (props) => {
         >
           <div className='cards-container__content'>
             <h2>
-              <i class='fas fa-wine-glass-alt'></i> CHAMPAGNE
+              <i className='fas fa-wine-glass-alt'></i> CHAMPAGNE
             </h2>
             <section className='cards-container__toolbar'>
               <div className='cards-container__filters'>
@@ -204,7 +204,7 @@ const HomePage = (props) => {
                 />
               </div>
             </section>
-            <div class='cards-container__items'>
+            <div className='cards-container__items'>
               <table className='cards-container__inventory-list'>
                 <thead>
                   <tr>
@@ -229,7 +229,7 @@ const HomePage = (props) => {
         <motion.div className='cards-container__card' variants={itemVariants2}>
           <div className='cards-container__content'>
             <h2>
-              <i class='fas fa-wine-bottle'></i>MA CAVE
+              <i className='fas fa-wine-bottle'></i>MA CAVE
             </h2>
 
             <MaCave
@@ -241,7 +241,7 @@ const HomePage = (props) => {
         <motion.div className='cards-container__card' variants={itemVariants3}>
           <div className='cards-container__content'>
             <h2>
-              <i class='fas fa-file-invoice-dollar'></i>MON COMPTE
+              <i className='fas fa-file-invoice-dollar'></i>MON COMPTE
             </h2>
             <UserDetails />
             <div className=''></div>

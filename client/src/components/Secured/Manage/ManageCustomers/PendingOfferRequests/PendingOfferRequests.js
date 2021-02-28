@@ -106,7 +106,7 @@ const PendingOfferRequests = () => {
           {currentGroup.offers.map((offer, index) => {
             return (
               <div className='pending-orders__order-list'>
-                <div class='w-50'>{index + 1}.</div>
+                <div className='w-50'>{index + 1}.</div>
                 <div className='w-150'>{formatMoney(offer.price)}</div>
                 <div className='w-150'>{formatMoney(offer.offer)}</div>
                 <div className='w-150'>

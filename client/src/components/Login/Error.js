@@ -12,7 +12,7 @@ const errorVariant = {
 const Error = ({ error }) => {
   return (
     <motion.div
-      className='danger'
+      className='danger p-2 w-250 textCenter font-2'
       variants={errorVariant}
       initial='hidden'
       animate='visible'
@@ -21,5 +21,7 @@ const Error = ({ error }) => {
     </motion.div>
   );
 };
+
+<div className='bg-warning p-2 w-200 textCenter'>mauvais mot de passe</div>;
 
 export default Error;

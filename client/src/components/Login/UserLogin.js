@@ -55,6 +55,7 @@ const UserLogin = (props) => {
   });
 
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [wrongPassword, setWrongPassword] = useState(false);
 
   useEffect(() => {
     document.title = 'champagne Deutz';
@@ -69,13 +70,7 @@ const UserLogin = (props) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    if (isSignedIn) {
-      // saveLog();
-      console.log('here');
-      // window.location = '/home';
-    }
-  }, [isSignedIn]);
+  useEffect(() => {}, [isSignedIn]);
 
   const initLogin = () => {
     const hasError =
@@ -87,11 +82,22 @@ const UserLogin = (props) => {
 
     if (!hasError) {
       try {
-        props.login(userDetails);
-        console.log('login');
+        //eslint-disable-next-line
+        const { data } = props.login(userDetails);
+
+        setTimeout(() => {
+          console.log('siigned', isSignedIn);
+          setWrongPassword(!isSignedIn);
+        }, 500);
       } catch (e) {
         console.log('error: ', e);
       }
+    }
+  };
+
+  const loginWithEnter = (e) => {
+    if (e.key === 'Enter') {
+      initLogin();
     }
   };
 
@@ -128,6 +134,7 @@ const UserLogin = (props) => {
             className='mb-1'
             name='password'
             onChange={onChange}
+            onKeyPress={loginWithEnter}
             value={userDetails.password}
           />
           <motion.button
@@ -136,7 +143,7 @@ const UserLogin = (props) => {
           >
             Login
           </motion.button>
-          {userDetails.hasError && <Error error='Wrong credentials.' />}
+          {wrongPassword && <Error error='Wrong credentials.' />}
           <div className='divider mt-1'></div>
           <p className='login-container__register mt-6'>
             Pas encore de compte?&nbsp;

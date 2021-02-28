@@ -50,7 +50,7 @@ customerSchema.methods.toJSON = function () {
   const customer = this;
   const customerObject = customer.toObject();
 
-  delete customerObject.userPassword;
+  // delete customerObject.userPassword;
   delete customerObject.tokens;
   delete customerObject.__v;
 

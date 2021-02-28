@@ -25,7 +25,7 @@ const Header = (props) => {
             {customer.firstName} {customer.lastName}
           </div>
           <div className='header-container__item'>
-            <i class='fas fa-money-bill'></i>
+            <i className='fas fa-money-bill'></i>
             {formatMoney(customer.balance)}
           </div>
           <div className='header-container__item' onClick={setLogOut}>

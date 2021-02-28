@@ -70,7 +70,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
 
   const customerPrivateRender = () => {
     return (
-      <div class='customer-area'>
+      <div className='customer-area'>
         <CustomerHeader />
         <Switch location={location} key={location.key}>
           <Route exact path='/'>
