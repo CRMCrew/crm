@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
 
-const token = cookie.get('token');
+const token = cookie.get('admin-token');
 export const PrivateRoute = ({
   isAuthenticated,
   user,

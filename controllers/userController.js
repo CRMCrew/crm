@@ -18,10 +18,11 @@ const initLogin = async (req, res) => {
       req.body.password
     );
 
+    console.log(' here');
     const token = await user.generateAuthToken();
     res
       .status(202)
-      .cookie('token', token, {
+      .cookie('admin-token', token, {
         sameSite: 'strict',
         path: '/',
         expires: new Date(new Date().getTime() + 1000 * 1000),
