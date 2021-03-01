@@ -16,7 +16,7 @@ const Header = (props) => {
 
   const backToAdmin = () => {
     props.logOut();
-    history.push('/customers/');
+    history.push('/backoffice/customers/');
   };
   const renderAdminButton = () => {
     return (

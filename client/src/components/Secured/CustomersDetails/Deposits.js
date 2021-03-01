@@ -18,6 +18,7 @@ const Deposits = ({ customer, user }) => {
     customer: customer._id,
     user: user._id,
   };
+
   useEffect(() => {
     const getLogs = async () => {
       const { data } = await api.get(
