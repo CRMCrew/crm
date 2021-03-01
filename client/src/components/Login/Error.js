@@ -22,6 +22,4 @@ const Error = ({ error }) => {
   );
 };
 
-<div className='bg-warning p-2 w-200 textCenter'>mauvais mot de passe</div>;
-
 export default Error;

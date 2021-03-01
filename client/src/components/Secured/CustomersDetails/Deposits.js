@@ -11,7 +11,13 @@ const Deposits = ({ customer, user }) => {
   const [deposit, setDeposit] = useState(newDeposit);
   const [error, setError] = useState(null);
   const [logs, setLogs] = useState(null);
-
+  newDeposit = {
+    ...depoistModal,
+    amount: '',
+    isWithDeposit: true,
+    customer: customer._id,
+    user: user._id,
+  };
   useEffect(() => {
     const getLogs = async () => {
       const { data } = await api.get(
@@ -20,13 +26,7 @@ const Deposits = ({ customer, user }) => {
 
       setLogs(data);
     };
-    newDeposit = {
-      ...depoistModal,
-      amount: '',
-      isWithDeposit: false,
-      customer: customer._id,
-      user: user._id,
-    };
+
     setDeposit(newDeposit);
 
     getLogs();
@@ -80,24 +80,12 @@ const Deposits = ({ customer, user }) => {
     toast.success('😍 New deposit log added.');
   };
 
-  const isChecked = deposit.isWithDeposit;
   return (
     <div className='deposits'>
       <div className='deposits__add-new-deposit'>
         <div className='deposits__add'>
           <div className='deposits__add-header'>New Deposit</div>
-          <div>
-            <input
-              name='isWithDeposit'
-              type='checkbox'
-              id='real-deposit'
-              checked={deposit.isWithDeposit}
-              onChange={(e) => {
-                setDeposit({ ...deposit, isWithDeposit: e.target.checked });
-              }}
-            />
-            <label for='real-deposit'> With real Deposit</label>
-          </div>
+          <div></div>
           <div>
             <SelectDepositType
               value={deposit.depositType}

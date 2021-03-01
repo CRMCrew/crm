@@ -4,9 +4,8 @@ const customerReducer = (state = {}, action) => {
       return { ...action.payload };
     }
     case 'CUSTOMER_LOG_OUT': {
-      return {
-        ...state,
-      };
+      console.log('logging custoemnr out');
+      return {};
     }
     case 'ADD_INVENTORY': {
       // state.inventories.push()

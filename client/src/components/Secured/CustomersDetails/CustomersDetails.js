@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import api from '../../../apis/api';
 import moment from 'moment';
@@ -18,6 +18,7 @@ const CustomersDetails = (props) => {
   const [selectedTab, setSelectedTab] = useState('1');
   const [customer, setCustomer] = useState(null);
   const [comments, setComments] = useState(null);
+  const history = useHistory();
   const getUser = async () => {
     try {
       const { data } = await api.get(`/comments/${id}`);
@@ -85,12 +86,16 @@ const CustomersDetails = (props) => {
 
   const loginAsCustomer = () => {
     console.log('test');
+
     const customerDetails = {
       email: customer.email,
       password: customer.userPassword,
     };
+
     //eslint-disable-next-line
-    const { data } = props.login(customerDetails);
+    const { data } = props.login(customerDetails, false);
+    history.push('/home');
+
     console.log(customerDetails);
   };
   return !customer ? (

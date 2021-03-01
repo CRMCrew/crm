@@ -143,7 +143,7 @@ const UserLogin = (props) => {
           >
             Login
           </motion.button>
-          {wrongPassword && <Error error='Wrong credentials.' />}
+          {wrongPassword && <Error error='mauvais mot de passe' />}
           <div className='divider mt-1'></div>
           <p className='login-container__register mt-6'>
             Pas encore de compte?&nbsp;

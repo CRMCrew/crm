@@ -1,16 +1,32 @@
 import React from 'react';
 import img from '../../../images/logo.png';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { formatMoney } from '../../../utils/formatting';
 import { logOut } from '../../../actions/customersActions';
 const Header = (props) => {
+  const { user, customer } = props;
+  const history = useHistory();
+
   const setLogOut = () => {
-    console.log('logout');
-    props.logOut(props.customer);
+    props.logOut();
+    props.logOut(customer);
     window.location = '/';
   };
-  const { customer } = props;
+
+  const backToAdmin = () => {
+    props.logOut();
+    history.push('/customers/');
+  };
+  const renderAdminButton = () => {
+    return (
+      user.firstName && (
+        <div className='header-container__item' onClick={backToAdmin}>
+          <i className='fas fa-user-shield header-container__icon-1'></i>
+        </div>
+      )
+    );
+  };
   return (
     <header className='header-container'>
       <div className='header-container__brand'>
@@ -32,6 +48,7 @@ const Header = (props) => {
             <i className='fas fa-sign-out-alt header-container__icon-2'></i>
             (Déconnexion)
           </div>
+          {renderAdminButton()}
         </div>
       </div>
     </header>
@@ -41,6 +58,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     customer: state.customerReducer,
+    user: state.userReducer,
   };
 };
 

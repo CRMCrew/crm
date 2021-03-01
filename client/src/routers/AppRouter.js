@@ -21,6 +21,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();
 
   const authRender = () => {
+    console.log('auth router');
     return (
       <div className='secured-container'>
         <Header />
@@ -58,6 +59,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   };
 
   const publicRender = () => {
+    console.log('public router');
     return (
       <Switch location={location} key={location.key}>
         <PublicRoute exact path='/' component={UserLogin} />
@@ -69,6 +71,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   };
 
   const customerPrivateRender = () => {
+    console.log('customer router');
     return (
       <div className='customer-area'>
         <CustomerHeader />

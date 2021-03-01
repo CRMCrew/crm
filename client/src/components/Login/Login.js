@@ -9,6 +9,7 @@ import Error from './Error';
 import logoIcon from '../../images/logo-icon.png';
 import logoText from '../../images/logo-text.png';
 import logo from '../../images/logo.png';
+
 const containerVariants = {
   hidden: {
     opacity: 0.2,

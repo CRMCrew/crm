@@ -21,8 +21,6 @@ import {
   tdOpacityVariant,
 } from './variations';
 
-const maxItems = 10;
-
 const HomePage = (props) => {
   const [headers, setHeaders] = useState(null);
   const [groups, setGroups] = useState(null);
