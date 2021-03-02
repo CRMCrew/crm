@@ -21,6 +21,9 @@ const UserDetails = () => {
       case 3: {
         return <UserPassword />;
       }
+      default: {
+        return <Information />;
+      }
     }
   };
 
@@ -56,7 +59,7 @@ const UserDetails = () => {
             Password
           </div>
         </section>
-        <section className='ma-cave__content'>{renderTab()}</section>
+        <section className=''>{renderTab()}</section>
       </div>
     </div>
   );

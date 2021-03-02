@@ -225,7 +225,11 @@ const HomePage = (props) => {
         </motion.div>
 
         <motion.div className='cards-container__card' variants={itemVariants2}>
-          <div className='cards-container__content'>
+          <div className='cards-container__content ma-cave__content'>
+            <h2>
+              <i className='fas fa-file-invoice-dollar'></i>MON COMPTE
+            </h2>
+            <UserDetails />
             <h2>
               <i className='fas fa-wine-bottle'></i>MA CAVE
             </h2>
@@ -234,15 +238,6 @@ const HomePage = (props) => {
               headers={headers}
               inventories={props.customer.inventories}
             />
-          </div>
-        </motion.div>
-        <motion.div className='cards-container__card' variants={itemVariants3}>
-          <div className='cards-container__content'>
-            <h2>
-              <i className='fas fa-file-invoice-dollar'></i>MON COMPTE
-            </h2>
-            <UserDetails />
-            <div className=''></div>
           </div>
         </motion.div>
       </motion.div>

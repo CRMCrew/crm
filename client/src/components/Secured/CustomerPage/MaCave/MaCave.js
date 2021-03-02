@@ -56,7 +56,6 @@ const MaCave = ({ headers, inventories }) => {
 
   return (
     <div>
-      <section className='cards-container__toolbar'>&nbsp;</section>
       <div className='ma-cave'>
         <section className='ma-cave__tabs'>
           <div
@@ -105,7 +104,7 @@ const MaCave = ({ headers, inventories }) => {
             </span>
           </div>
         </section>
-        <section className='ma-cave__content'>{renderTab()}</section>
+        <section className=''>{renderTab()}</section>
       </div>
     </div>
   );

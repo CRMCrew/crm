@@ -72,7 +72,7 @@ const Information = (props) => {
         </div>
         <div className='user-info__container'>
           <div className='flex'>
-            <lel>Adresse:</lel>
+            <label>Adresse:</label>
             <input
               type='text'
               placeholder='Adresse'
