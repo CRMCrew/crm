@@ -6,6 +6,7 @@ const {
   getByOwner,
   initLogin,
   logOut,
+
   logOutAll,
   validateToken,
   updateById,
@@ -18,7 +19,7 @@ router.post('/login', initLogin);
 router.post('/validateToken', validateToken);
 router.post('/register', registerCustomer);
 router.post('/get-by-owner', getByOwner);
-router.patch('/update', auth, updateById);
+router.patch('/update', updateById);
 router.patch('/update-many', updateManyById);
 router.get('/details/:id', auth, getCustomerDetails);
 router.patch('/deposit', deposit);

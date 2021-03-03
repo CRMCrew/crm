@@ -1,3 +1,4 @@
+/* eslint-disable */
 const customerReducer = (state = {}, action) => {
   switch (action.type) {
     case 'CUSTOMER_LOG_IN': {
@@ -6,6 +7,9 @@ const customerReducer = (state = {}, action) => {
     case 'CUSTOMER_LOG_OUT': {
       console.log('logging custoemnr out');
       return {};
+    }
+    case 'UPDATE_CUSTOMER': {
+      return { ...state, ...action.payload };
     }
     case 'ADD_INVENTORY': {
       // state.inventories.push()

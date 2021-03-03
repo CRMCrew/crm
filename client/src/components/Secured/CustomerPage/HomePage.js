@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -223,11 +224,10 @@ const HomePage = (props) => {
             </div>
           </div>
         </motion.div>
-
         <motion.div className='cards-container__card' variants={itemVariants2}>
           <div className='cards-container__content ma-cave__content'>
             <h2>
-              <i className='fas fa-file-invoice-dollar'></i>MON COMPTE
+              <i className='fas fa-file-invoice-dollar'></i> MON COMPTE
             </h2>
             <UserDetails />
             <h2>

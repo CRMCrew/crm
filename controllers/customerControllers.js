@@ -70,9 +70,12 @@ const getByOwner = async (req, res) => {
   res.json({ customers, count });
 };
 
-const updateById = async ({ body }, res) => {
-  const { _id, update } = body;
-  const response = await Customer.updateOne({ _id }, update);
+const updateById = async (req, res) => {
+  const { _id, updates } = req.body;
+  console.log(_id);
+  delete updates.userRePassword;
+  if (updates.userPassword.trim() === '') delete updates.userPassword;
+  const response = await Customer.updateOne({ _id }, updates);
   res.json(response);
 };
 

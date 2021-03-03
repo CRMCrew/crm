@@ -17,7 +17,6 @@ const baseStyle = {
   color: '#bdbdbd',
   outline: 'none',
   justifyContent: 'center',
-  color: '#000',
   transition: 'border .24s ease-in-out',
   height: '20rem',
   width: '60rem',

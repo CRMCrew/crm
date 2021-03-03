@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import api from '../apis/api';
 
 export const login = (userDetails) => async (dispatch) => {

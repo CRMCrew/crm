@@ -162,15 +162,13 @@ body.mycave {
       box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
       font-size: 1.5rem;
       pointer-events: none;
-      margin: 0 0 1.5rem 0;
+
       max-width: 25rem;
       text-align: left;
       letter-spacing: 0.3 rem;
       text-align: center;
-      i {
-        margin: 0 1rem 0 0.5rem;
-        color: $white;
-      }
+      margin: 3rem 0 3rem 1.5rem;
+      color: $white;
     }
   }
 
@@ -509,16 +507,43 @@ body.mycave {
 .user-info {
   padding: 1.5rem;
   display: flex;
-  gap: 7rem;
+  gap: 2rem;
 
+  & > div {
+    flex-grow: 1;
+  }
   & .flex {
     margin-bottom: 1rem;
   }
 
   &__container {
     label {
-      width: 20rem;
+      width: 26rem;
     }
+  }
+
+  &__form-errors {
+    padding: 1rem;
+    min-width: 43rem;
+    gap: 2rem;
+  }
+
+  &__form-success {
+    min-width: 43rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .user-info__error-item {
+      border: 2px solid $success;
+    }
+  }
+
+  &__error-item {
+    border: 2px solid #daa520;
+    padding: 1.2rem;
+    min-width: 43rem;
+    border-radius: 0.5rem;
+    text-align: center;
   }
 
   &__buttons {

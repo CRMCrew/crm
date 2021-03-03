@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { motion, AnimatePresence } from 'framer-motion';

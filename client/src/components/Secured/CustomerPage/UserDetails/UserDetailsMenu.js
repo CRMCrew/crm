@@ -1,8 +1,8 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import Information from './Information';
 import History from './History';
 import Factures from './Factures';
-import UserPassword from './UserPassword';
 
 const UserDetails = () => {
   const [menu, setMenu] = useState(0);
@@ -18,9 +18,7 @@ const UserDetails = () => {
       case 2: {
         return <Factures />;
       }
-      case 3: {
-        return <UserPassword />;
-      }
+
       default: {
         return <Information />;
       }
@@ -51,12 +49,6 @@ const UserDetails = () => {
             onClick={() => setMenu(2)}
           >
             Factures
-          </div>
-          <div
-            className={`ma-cave__tab ${renderIsSelected(3)}`}
-            onClick={() => setMenu(3)}
-          >
-            Password
           </div>
         </section>
         <section className=''>{renderTab()}</section>

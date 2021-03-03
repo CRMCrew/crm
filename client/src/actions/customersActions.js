@@ -18,6 +18,14 @@ export const login = (userDetails, isWithLog = true) => async (dispatch) => {
   } catch (error) {}
 };
 
+export const updateCustomer = (data) => async (dispatch) => {
+  await api.patch(`/customers/update/`, data);
+  dispatch({
+    type: 'UPDATE_CUSTOMER',
+    payload: data.updates,
+  });
+};
+
 export const addInventoryGroup = (group) => async (dispatch) => {
   const { data } = await api.post('/customers-inventory/save', group);
   group._id = data._id;
@@ -43,7 +51,6 @@ export const deleteInventoryOffer = ({ group, offerId }) => async (
 
 export const updateGroup = (group, updates) => async (dispatch) => {
   await api.put(`customers-inventory/update-one/${group._id}`, updates);
-
   dispatch({
     type: 'UPDATE_GROUP_STATUS',
     payload: { groupId: group, updates },

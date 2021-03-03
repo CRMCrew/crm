@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useRef } from 'react';
 import { formatMoney } from '../../../../../utils/formatting';
 import moment from 'moment';

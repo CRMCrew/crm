@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useRef } from 'react';
 import api from '../../../../apis/api';
 const SellerDropdown = ({
