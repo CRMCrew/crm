@@ -16,6 +16,7 @@ const customerLogsRouter = require('./routers/CustomerLogsRouter');
 const customerInventoryRouter = require('./routers/CustomerInventoryRouter');
 const headersRouter = require('./routers/headersRouter');
 const depositLogsRouter = require('./routers/DepositLogsRouter');
+const pdfRouter = require('./routers/pdfRouter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,6 +43,7 @@ app.use('/inventroyItem', InventoryItemRouter);
 app.use('/customers-logs', customerLogsRouter);
 app.use('/customers-inventory', customerInventoryRouter);
 app.use('/deposit-logs/', depositLogsRouter);
+app.use('/pdf/', pdfRouter);
 
 // serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

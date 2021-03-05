@@ -121,6 +121,7 @@ body.mycave {
   // align-items: center;
   flex-wrap: wrap;
   z-index: 1;
+  justify-content: center;
 
   & > div {
     flex-grow: 1;
@@ -550,6 +551,31 @@ body.mycave {
     margin: 0.5rem 0 2rem 0;
     .button {
       width: 25rem;
+    }
+  }
+}
+
+.deposit-history {
+  &__no-history {
+    text-align: center !important;
+    font-size: 1.3em !important;
+    padding: 0 0 2rem 0 !important;
+  }
+}
+
+.factures {
+  &__download {
+    width: 1rem;
+    cursor: pointer;
+    text-align: center;
+    & i {
+      font-size: 1.6em;
+      transition: all 0.5s;
+
+      &:hover {
+        color: gold;
+        transform: scale(1.3);
+      }
     }
   }
 }

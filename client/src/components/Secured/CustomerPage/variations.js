@@ -78,9 +78,9 @@ export const tdItem = {
     opacity: 1,
     x: 0,
     transition: {
-      type: 'spring',
+      type: 'tween',
       ease: 'easeInOut',
-      stiffness: 50,
+      duration: 0.1,
     },
   },
   exit: {
@@ -98,7 +98,7 @@ export const tdOpacityVariant = {
 
     transition: {
       type: 'tween',
-      duration: 1,
+      duration: 0.4,
     },
   },
   exit: {
