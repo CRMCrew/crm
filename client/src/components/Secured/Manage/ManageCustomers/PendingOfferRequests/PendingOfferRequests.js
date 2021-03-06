@@ -10,7 +10,7 @@ const PendingOfferRequests = () => {
   const [currentGroup, setCurrentGroup] = useState(null);
 
   const addOffer = async (id, updates) => {
-    api.post(`/customers-inventory/push-offers/${id}`, updates);
+    await api.post(`/customers-inventory/push-offers/${id}`, updates);
   };
   useEffect(() => {
     const getData = async (req, res) => {

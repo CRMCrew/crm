@@ -79,6 +79,13 @@
       .company-details td {
             text-align: right;
       }
+
+      .text-right {
+          text-align: right;
+      }
+      .text-center {
+          text-align: center !important;
+      }
     </style>
   </head>
   <body>
@@ -104,7 +111,7 @@
           </td>
         </tr>
         <tr class="top">
-          <td colspan="2">Facture :#2645223</td>
+          <th colspan="2" style="font-size: 1.3em;padding-bottom:1rem">Facture :#2645223</th>
         </tr>
         <tr class="top">
           <td colspan="2"><hr /></td>
@@ -116,7 +123,7 @@
                 <td>
                   <table style="margin-bottom:1rem">
                     <tr>
-                      <td>Facturé à:</td>
+                      <th>Facturé à:</th>
                     </tr>
                     <tr>
                       <td>Gabriel Bouyssiere</td>
@@ -135,7 +142,7 @@
                 </td>
                 <td><table style="margin-bottom:1rem" class="company-details">
                     <tr>
-                      <td>Payé à:</td>
+                      <th class="text-right">Payé à:</th>
                     </tr>
                     <tr>
                       <td>CAP DE FRANCE contact@cap-de-france.com</td>
@@ -163,21 +170,42 @@
         </tr>
         <tr class="heading">
           <td>Références</td>
-          <td>Price</td>
         </tr>
         <tr class="item">
-          <td>First item:</td>
-          <td>${price1}$</td>
-        </tr>
-        <tr class="item">
-          <td>Second item:</td>
-          <td>${price2}$</td>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Description</th>
+                      <th class="text-center">Montant</th>
+                  </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>Ref #66-CHAMPAGNE Dom Pérignon - 1995/ROSÉ/75CL </td><td class="text-center">2977</td>
+              </tr>
+              </tbody>
+              <tfoot>
+                  <tr class="heading">
+                      <td>
+                          &nbsp;
+                      </td>
+                      <td class="text-center">
+                          Sous Total 2997
+                      </td>
+                    </tr>
+
+                    <tr class="heading">
+                     <td>&nbsp;</td>
+                        <td class="text-center"> 
+                        Total 2997
+                    </td>
+                </tr>
+                  </tr>
+              </tfoot>
+          </table>
         </tr>
       </table>
-      <br />
-      <h1 class="justify-center">
-        Total price: ${ parseInt(price1) + parseInt(price2) }$
-      </h1>
+     
     </div>
   </body>
 </html>

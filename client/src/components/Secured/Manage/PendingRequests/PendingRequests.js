@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../../apis/api';
 import PendingRequestItem from './PendingRequestItem';
+import moment from 'moment';
+import { uid } from 'uid';
+import { formatMoney } from '../../../../utils/formatting';
 
 const PendingRequests = () => {
   const [groups, setGroups] = useState(null);
@@ -18,11 +21,29 @@ const PendingRequests = () => {
   }, []);
 
   const acceptProduct = async (group, isWithDeposit, customer, price) => {
+    const items = group.inventory.items;
+    const date = moment().format('DD-MM-YY HH:mm:ss');
+    const originalPrice = formatMoney(items[3].text);
+    const pdfParams = {
+      itemId: group._id,
+      customerId: customer._id,
+      itemName: `${items[0].text} ${items[1].text} ${items[2].text}`,
+      date: date,
+      price: originalPrice,
+      factureId: uid(16),
+      ville: customer.ville,
+      country: customer.country,
+      postalCode: customer.postalCode,
+      phone: customer.phone,
+      userName: `${customer.firstName} ${customer.lastName}`,
+    };
+
+    await api.post(`pdf/save`, pdfParams);
+    console.log(customer);
+    console.log('pdf', pdfParams);
     await api.put(`customers-inventory/update-one/${group._id}`, {
       status: 1,
     });
-
-    if (parseInt(customer.balance) < parseInt(price)) price = customer.balance;
 
     await api.patch('/customers/deposit/', {
       _id: customer.id,

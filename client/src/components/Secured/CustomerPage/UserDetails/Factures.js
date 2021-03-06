@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import api from '../../../../apis/api';
 import { formatMoney } from '../../../../utils/formatting';
 import moment from 'moment';
+import { saveAs } from 'file-saver';
 
 const Factures = ({ customer }) => {
   const [currentGroups, setCurrentGroups] = useState(null);
 
   const getFilterdGroup = () => {
-    return customer.inventories.filter((x) => x.status === 0);
+    return customer.inventories.filter((x) => x.status !== 0);
   };
 
   useEffect(() => {
@@ -15,9 +17,18 @@ const Factures = ({ customer }) => {
     setCurrentGroups(groups);
   }, []);
 
+  const downloadPdf = async (itemId) => {
+    console.log('1', customer._id, ' 2', itemId);
+    const { data } = await api.get(`/pdf/get/${customer._id}/${itemId}`, {
+      responseType: 'blob',
+    });
+
+    const pdfBlob = new Blob([data], { type: 'application/pdf' });
+    saveAs(pdfBlob, 'pdf');
+  };
+
   const renderInventory = () => {
-    return (
-      currentGroups &&
+    return currentGroups && currentGroups.length > 0 ? (
       currentGroups.map((group) => {
         const date = moment(group.createdAt).format('DD-MM-YY HH:mm:ss');
 
@@ -25,12 +36,19 @@ const Factures = ({ customer }) => {
           <tr key={group._id}>
             <td>{date}</td>
             <td>{group.inventory.items[0].text}</td>
-            <td className='factures__download'>
+            <td
+              className='factures__download'
+              onClick={() => downloadPdf(group._id)}
+            >
               <i class='fas fa-file-download'></i>
             </td>
           </tr>
         );
       })
+    ) : (
+      <td colspan='3' className='deposit-history__no-history'>
+        ce pas d'historique de transaction disponible actuellement.
+      </td>
     );
   };
 
