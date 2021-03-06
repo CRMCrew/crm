@@ -26,7 +26,7 @@ const readXlsFile = async (newName) => {
   return users;
 };
 const moveFile = (file, newName) => {
-  file.mv(`./uploads/${newName}.xlsx`);
+  file.mv(`${appDir}/uploads/${newName}.xlsx`);
   for (let i = 0; i < 20; i++) {
     console.log('done moving');
   }
@@ -74,7 +74,7 @@ const executeImportCustomer = async (req, res) => {
   const added = [];
   while (hasFile) {
     const name = `${fileId}_${count++}`;
-    if (fs.existsSync(`./uploads/${name}.xlsx`)) {
+    if (fs.existsSync(`${appDir}/uploads/${name}.xlsx`)) {
       try {
         users = await readXlsFile(name);
         'users', users;
