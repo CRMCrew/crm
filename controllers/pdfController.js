@@ -8,9 +8,9 @@ const save = async (req, res) => {
     .create(template(req.body, {}))
     .toFile(`./pdf/${req.body.customerId}/${req.body.itemId}.pdf`, (err) => {
       if (err) {
-        return Promise.reject();
+        res.status(400).send({ error: err });
       } else {
-        return Promise.resolve();
+        res.status(200).send({ success });
       }
     });
 
