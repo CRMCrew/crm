@@ -2,11 +2,13 @@ const { v4: uuidv4 } = require('uuid');
 
 const readXlsxFile = require('read-excel-file/node');
 const Customer = require('../models/Customer');
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
 const fs = require('fs');
 
 const readXlsFile = async (newName) => {
   const users = [];
-  await readXlsxFile(`./uploads/${newName}.xlsx`).then((rows) => {
+  await readXlsxFile(`${appDir}/uploads/${newName}.xlsx`).then((rows) => {
     // rows.forEach((row) => {
     for (const row of rows) {
       users.push({

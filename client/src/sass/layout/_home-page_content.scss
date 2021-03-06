@@ -579,3 +579,9 @@ body.mycave {
     }
   }
 }
+
+.withdraw-model {
+  & .add-item-buttons {
+    margin: 2rem 0 0 0;
+  }
+}
