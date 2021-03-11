@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User.js');
 const auth = async (req, res, next) => {
   try {
+    console.log('admin auth');
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, 'thisismylife');
     const user = await User.findOne({

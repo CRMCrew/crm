@@ -163,22 +163,22 @@ module.exports = ({
                         <th class="text-right">Payé à:</th>
                       </tr>
                       <tr>
-                        <td>CAP DE FRANCE contact@cap-de-france.com</td>
+                        <td>CHAMPAGNE DEUTZ contact@champagne-deutz.online</td>
                       </tr>
                       <tr>
-                        <td>+33 (0)9 71 07 82 21</td>
+                        <td>+33 (0)4 89 33 14 11</td>
                       </tr>
                   <tr>
-                        <td>au capital de 650 000,00 €, inscrite au RCS de</td>
+                        <td>au capital de 6 627 726,00 €, inscrite au RCS de</td>
                       </tr>
                   <tr>
-                        <td>Paris sous le nom de CAP 50 avec le numero de</td>
+                        <td>Reims sous le nom de Champagne deutz avec le numero de</td>
                       </tr>
                       <tr>
-                          <td>siret 52037291300027</td>
+                          <td>siret 33568135900014</td>
                         </tr>
                         <tr>
-                          <td>3 RUE DE SIAM 75116 PARIS</td>
+                          <td>16 RUE JEANSON 51160 AY Champagne</td>
                         </tr>
                      
                     </table></td>

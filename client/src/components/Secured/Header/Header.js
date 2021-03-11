@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import img from '../../../images/logo.png';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { logOut } from '../../../actions/userActions';
 
 const Header = (props) => {
+  const history = useHistory();
   useEffect(() => {}, []);
   const logOut = () => {
     props.logOut();
+    history.push('/backoffice');
   };
   return (
     <header className='header-container'>
