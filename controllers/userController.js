@@ -12,6 +12,8 @@ const addUser = async (req, res) => {
 };
 
 const initLogin = async (req, res) => {
+  console.log('ini');
+  console.log('params', req.body.email, ' ', req.body.password);
   try {
     const user = await User.findByCredentials(
       req.body.email,
@@ -29,7 +31,9 @@ const initLogin = async (req, res) => {
       })
       .send({ user, token });
   } catch (error) {
-    res.status(400).send({ message: 'could validata credentials', error });
+    res
+      .status(400)
+      .send({ message: 'could validata credentials admin', error });
   }
 };
 

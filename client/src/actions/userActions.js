@@ -3,6 +3,7 @@
 import api from '../apis/api';
 
 export const login = (userDetails) => async (dispatch) => {
+  console.log('user', userDetails);
   try {
     const { data } = await api.post('/users/login', userDetails);
 
