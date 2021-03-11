@@ -4,9 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/customersActions';
 const IsLogged = (props) => {
+  console.log('in iglogged');
   const history = useHistory();
   const [user, setUser] = useState(null);
   useEffect(() => {
+    console.log(props);
     const getUser = async () => {
       const { data } = await api.get('/refresh/');
       setUser(data);
