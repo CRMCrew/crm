@@ -105,7 +105,6 @@ const getCustomerDetails = async (req, res) => {
 
 const logOut = async (req, res) => {
   const { customer } = req.body;
-
   console.log(customer._id);
 
   try {

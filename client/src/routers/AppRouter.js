@@ -16,6 +16,7 @@ import Planning from '../components/Secured/Planning/Planning';
 import OptionsMenu from '../components/Secured/Menu/OptionsMenu';
 import CustomerHeader from '../components/Secured/CustomerPage/Header';
 import BackToTop from '../components/BackToTop/BackToTop';
+import IsLogged from '../components/IsLogged/IsLogged';
 
 const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();
@@ -63,9 +64,13 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
     return (
       <Switch location={location} key={location.key}>
         <PublicRoute exact path='/' component={UserLogin} />
+        <Route exact path='/'>
+          <Redirect to='/home' />
+        </Route>
         <PublicRoute exact path='/backoffice' component={Login} />
         <Route exact path='/register' component={Register} />
         <PrivateRoute path='/backoffice/dashboard' component={Dashboard} />
+        <Route path='*' exact={true} component={IsLogged} />
       </Switch>
     );
   };

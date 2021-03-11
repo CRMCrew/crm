@@ -80,7 +80,7 @@ const executeImportCustomer = async (req, res) => {
         'users', users;
         for (user of users) {
           const newC = {
-            firstName: user.firstName,
+            firstName: guser.firstName,
             lastName: user.lastName,
             email: user.email,
             phone: user.phone,
