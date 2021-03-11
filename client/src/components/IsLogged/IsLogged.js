@@ -15,11 +15,15 @@ const IsLogged = (props) => {
         email: data.email,
         password: data.userPassword,
       };
+
       const user = await props.login(customerDetails, false);
-      console.log(user);
-      setTimeout(() => {
-        history.push('/home');
-      }, 1000);
+      if (user) {
+        setTimeout(() => {
+          history.push('/home');
+        }, 700);
+      } else {
+        history.push('/');
+      }
       //eslint-disable-next-line
     };
 
