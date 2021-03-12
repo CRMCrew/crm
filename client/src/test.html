@@ -27,7 +27,7 @@
       text-align: left;
       }
       .invoice-box table td {
-     
+
       vertical-align: top;
       }
       .invoice-box table tr td:nth-child(2) {
@@ -42,7 +42,7 @@
       color: #333;
       }
       .invoice-box table tr.information table td {
-    
+
       }
       .invoice-box table tr.heading td {
       background: #eee;
@@ -71,20 +71,37 @@
       .invoice-box table tr.information table td {
       width: 100%;
       display: block;
-      text-align: center;
+      text-align: center !important;
       }
 
-      
+
+      }
+      .company-details tr { 
+        padding:0;
+        height:10px;
       }
       .company-details td {
             text-align: right;
+            font-size:0.6em;
+            padding:0 !important;
+            height:10px;
+
       }
 
       .text-right {
-          text-align: right;
+          text-align: right !important;
       }
       .text-center {
           text-align: center !important;
+      }
+
+      .table-footer {
+        margin-top:2rem;
+      }
+
+      .table-footer td.borders {
+        border-bottom: 1px solid #eee;
+        border-top: 1px solid #eee;
       }
     </style>
   </head>
@@ -102,7 +119,7 @@
                   />
                 </td>
                 <td
-                  style="color: #7f9900; font-size: 1.5rem; font-weight: bold"
+                  style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
                 >
                   PAYÉ
                 </td>
@@ -110,12 +127,10 @@
             </table>
           </td>
         </tr>
-        <tr class="top">
-          <th colspan="2" style="font-size: 1.3em;padding-bottom:1rem">Facture :#2645223</th>
+        <tr class="top" >
+          <td colspan="2" style="font-size: .8em;border-bottom:1px solid #eee;">Facture :${factureId}</td>
         </tr>
-        <tr class="top">
-          <td colspan="2"><hr /></td>
-        </tr>
+        
         <tr class="information">
           <td colspan="2">
             <table>
@@ -126,16 +141,16 @@
                       <th>Facturé à:</th>
                     </tr>
                     <tr>
-                      <td>Gabriel Bouyssiere</td>
+                      <td>${userName}</td>
                     </tr>
                     <tr>
-                      <td>0686621986</td>
+                      <td>${phone}</td>
                     </tr>
                 <tr>
-                      <td>LEDAT, 47300</td>
+                      <td>${address}</td>
                     </tr>
                 <tr>
-                      <td>France</td>
+                      <td>${country}</td>
                     </tr>
                     </tr>
                   </table>
@@ -145,24 +160,24 @@
                       <th class="text-right">Payé à:</th>
                     </tr>
                     <tr>
-                      <td>CAP DE FRANCE contact@cap-de-france.com</td>
+                      <td>CHAMPAGNE DEUTZ contact@champagne-deutz.online</td>
                     </tr>
                     <tr>
-                      <td>+33 (0)9 71 07 82 21</td>
+                      <td>+33 (0)4 89 33 14 11</td>
                     </tr>
                 <tr>
-                      <td>au capital de 650 000,00 €, inscrite au RCS de</td>
+                      <td>au capital de 6 627 726,00 €, inscrite au RCS de</td>
                     </tr>
                 <tr>
-                      <td>Paris sous le nom de CAP 50 avec le numero de</td>
+                      <td>Reims sous le nom de Champagne deutz avec le numero de</td>
                     </tr>
                     <tr>
-                        <td>siret 52037291300027</td>
+                        <td>siret 33568135900014</td>
                       </tr>
                       <tr>
-                        <td>3 RUE DE SIAM 75116 PARIS</td>
+                        <td>16 RUE JEANSON 51160 AY Champagne</td>
                       </tr>
-                   
+
                   </table></td>
               </tr>
             </table>
@@ -181,7 +196,7 @@
               </thead>
               <tbody>
               <tr>
-                  <td>Ref #66-CHAMPAGNE Dom Pérignon - 1995/ROSÉ/75CL </td><td class="text-center">2977</td>
+                  <td class="text-center">${itemName}</td><td class="text-center">${price}</td>
               </tr>
               </tbody>
               <tfoot>
@@ -190,14 +205,22 @@
                           &nbsp;
                       </td>
                       <td class="text-center">
-                          Sous Total 2997
+                          Sous Total ${price}
+                      </td>
+                    </tr>
+                    <tr class="heading">
+                      <td>
+                          &nbsp;
+                      </td>
+                      <td class="text-center">
+                        Crédit  0.00 €
                       </td>
                     </tr>
 
                     <tr class="heading">
                      <td>&nbsp;</td>
-                        <td class="text-center"> 
-                        Total 2997
+                        <td class="text-center">
+                        Total ${price}
                     </td>
                 </tr>
                   </tr>
@@ -205,7 +228,25 @@
           </table>
         </tr>
       </table>
-     
+      <table class="table-footer">
+        <thead>
+          <th>Date de transaction</th>
+          <th>Methode</th>
+          <th>Numéro de transaction </th>
+          <th>Montant</th>
+        </thead>
+        <tbody>
+          <tr>
+          <td colspan="4" style="text-align:center" class="borders">
+            Pas d'information
+          </td>
+          </tr>
+          <tr>
+          <td colspan="3">&nbsp</td><td colspan="1" style="text-align:left;">Balance: 0 €</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </body>
 </html>

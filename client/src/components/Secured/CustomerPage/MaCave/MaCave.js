@@ -12,7 +12,6 @@ const MaCave = ({ headers, inventories }) => {
   };
 
   useEffect(() => {
-    console.log('test');
     document.body.classList.add('mycave');
     return () => {
       document.body.classList.remove('mycave');

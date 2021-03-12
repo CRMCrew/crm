@@ -18,7 +18,6 @@ const Factures = ({ customer }) => {
   }, []);
 
   const downloadPdf = async (itemId) => {
-    console.log('1', customer._id, ' 2', itemId);
     const { data } = await api.get(`/pdf/get/${customer._id}/${itemId}`, {
       responseType: 'blob',
     });
@@ -38,9 +37,15 @@ const Factures = ({ customer }) => {
             <td>{group.inventory.items[0].text}</td>
             <td
               className='factures__download'
-              onClick={() => downloadPdf(group._id)}
+              // onClick={() => downloadPdf(group._id)}
             >
-              <i class='fas fa-file-download'></i>
+              <a
+                href={`../../../../pdf/${group._id}.pdf`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <i class='fas fa-file-download'></i>
+              </a>
             </td>
           </tr>
         );

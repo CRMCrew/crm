@@ -38,13 +38,13 @@ const PendingRequests = () => {
       userName: `${customer.firstName} ${customer.lastName}`,
     };
 
+    console.log('saving pdf');
     await api.post(`pdf/save`, pdfParams);
-    console.log(customer);
-    console.log('pdf', pdfParams);
+    console.log('upding status');
     await api.put(`customers-inventory/update-one/${group._id}`, {
       status: 1,
     });
-
+    console.log('removing from deposit');
     await api.patch('/customers/deposit/', {
       _id: customer.id,
       amount: -1 * price,

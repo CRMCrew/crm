@@ -3,7 +3,6 @@ import api from '../apis/api';
 export const login = (userDetails, isWithLog = true) => async (dispatch) => {
   try {
     const { data } = await api.post('/customers/login', userDetails);
-    console.log(data.customer);
     if (data.customer && isWithLog) {
       await api.post('/customers-logs/save', {
         customer: data.customer._id,
@@ -83,7 +82,6 @@ export const loadData = (token) => async (dispatch) => {
 
 export const logOut = (customer) => async (dispatch) => {
   try {
-    console.log('logging out actuion', customer);
     // await api.post('/customers/logOut', { customer });
     dispatch({
       type: 'CUSTOMER_LOG_OUT',

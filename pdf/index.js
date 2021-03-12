@@ -10,13 +10,13 @@ module.exports = ({
   price,
   customerID,
   itemID,
+  balance,
 }) => {
   const today = new Date();
   let address = '';
   if (ville) address = ville;
   if (postalCode) address = `${address}, ${postalCode}`;
-  return `
-  <!DOCTYPE html>
+  return `<!DOCTYPE html>
   <html>
     <head>
       <meta charset="utf-8" />
@@ -45,7 +45,7 @@ module.exports = ({
         text-align: left;
         }
         .invoice-box table td {
-       
+  
         vertical-align: top;
         }
         .invoice-box table tr td:nth-child(2) {
@@ -60,7 +60,7 @@ module.exports = ({
         color: #333;
         }
         .invoice-box table tr.information table td {
-      
+  
         }
         .invoice-box table tr.heading td {
         background: #eee;
@@ -92,10 +92,18 @@ module.exports = ({
         text-align: center !important;
         }
   
-        
+  
+        }
+        .company-details tr { 
+          padding:0;
+          height:10px;
         }
         .company-details td {
               text-align: right;
+              font-size:0.6em;
+              padding:0 !important;
+              height:10px;
+  
         }
   
         .text-right {
@@ -103,6 +111,15 @@ module.exports = ({
         }
         .text-center {
             text-align: center !important;
+        }
+  
+        .table-footer {
+          margin-top:2rem;
+        }
+  
+        .table-footer td.borders {
+          border-bottom: 1px solid #eee;
+          border-top: 1px solid #eee;
         }
       </style>
     </head>
@@ -120,7 +137,7 @@ module.exports = ({
                     />
                   </td>
                   <td
-                    style="color: #7f9900; font-size: 1.5rem; font-weight: bold"
+                    style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
                   >
                     PAYÉ
                   </td>
@@ -128,12 +145,10 @@ module.exports = ({
               </table>
             </td>
           </tr>
-          <tr class="top">
-            <th colspan="2" style="font-size: 1.3em;padding-bottom:1rem">Facture :#${factureId}</th>
+          <tr class="top" >
+            <td colspan="2" style="font-size: .8em;border-bottom:1px solid #eee;">Facture :${factureId}</td>
           </tr>
-          <tr class="top">
-            <td colspan="2"><hr /></td>
-          </tr>
+          
           <tr class="information">
             <td colspan="2">
               <table>
@@ -180,7 +195,7 @@ module.exports = ({
                         <tr>
                           <td>16 RUE JEANSON 51160 AY Champagne</td>
                         </tr>
-                     
+  
                     </table></td>
                 </tr>
               </table>
@@ -211,10 +226,18 @@ module.exports = ({
                             Sous Total ${price}
                         </td>
                       </tr>
+                      <tr class="heading">
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td class="text-center">
+                          Crédit  0.00 €
+                        </td>
+                      </tr>
   
                       <tr class="heading">
                        <td>&nbsp;</td>
-                          <td class="text-center"> 
+                          <td class="text-center">
                           Total ${price}
                       </td>
                   </tr>
@@ -223,7 +246,25 @@ module.exports = ({
             </table>
           </tr>
         </table>
-       
+        <table class="table-footer">
+          <thead>
+            <th>Date de transaction</th>
+            <th>Methode</th>
+            <th>Numéro de transaction </th>
+            <th>Montant</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td colspan="4" style="text-align:center" class="borders">
+              Pas d'information
+            </td>
+            </tr>
+            <tr>
+            <td colspan="3">&nbsp</td><td colspan="1" style="text-align:left;">Balance: 0 €</td>
+            </tr>
+          </tbody>
+        </table>
+  
       </div>
     </body>
   </html>

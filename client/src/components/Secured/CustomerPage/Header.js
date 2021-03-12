@@ -80,6 +80,26 @@ const Header = (props) => {
       <div className='header-container__toolbar'>
         <div>
           <div className='header-container__item'>
+            <i class='fas fa-file-signature'></i>
+            <a
+              href='../../../../contrat.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Contrat
+            </a>
+          </div>
+          <div className='header-container__item'>
+            <i class='far fa-file-pdf'></i>
+            <a
+              href='../../../../kbis.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Kabis
+            </a>
+          </div>
+          <div className='header-container__item'>
             <i className='fas fa-user'></i>
             {customer.firstName} {customer.lastName}
           </div>

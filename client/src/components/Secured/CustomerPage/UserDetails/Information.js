@@ -74,7 +74,6 @@ const Information = (props) => {
   };
   const updateDetails = (e) => {
     if (!hasErrors) {
-      console.log('updating 2');
       props.updateCustomer({ _id: props.customer._id, updates: customer });
       setCustomer(initialCustomer);
       setDidUpdate(true);
@@ -89,7 +88,6 @@ const Information = (props) => {
       customer.userPassword.trim() === '' ||
       (customer.userPassword > 3 &&
         customer.userPassword === customer.userRePassword);
-    console.log('result', result);
     return result;
   };
 

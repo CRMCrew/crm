@@ -86,8 +86,6 @@ const CustomersDetails = (props) => {
   };
 
   const loginAsCustomer = () => {
-    console.log('test');
-
     const customerDetails = {
       email: customer.email,
       password: customer.userPassword,
@@ -96,8 +94,6 @@ const CustomersDetails = (props) => {
     //eslint-disable-next-line
     const { data } = props.login(customerDetails, false);
     history.push('/home');
-
-    console.log(customerDetails);
   };
   return !customer ? (
     <Loader />

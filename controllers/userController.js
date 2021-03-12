@@ -12,15 +12,13 @@ const addUser = async (req, res) => {
 };
 
 const initLogin = async (req, res) => {
-  console.log('ini');
-  console.log('params', req.body.email, ' ', req.body.password);
   try {
     const user = await User.findByCredentials(
       req.body.email,
       req.body.password
     );
 
-    console.log(' here');
+    (' here');
     const token = await user.generateAuthToken();
     res
       .status(202)
