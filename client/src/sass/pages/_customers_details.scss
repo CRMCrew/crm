@@ -121,6 +121,15 @@
     font-weight: 700;
   }
 
+  &__balance {
+     width: 35rem;
+     padding:1rem;
+  }
+
+  &__balance-item {
+    padding:1rem;
+    font-weight:bold;
+  }
   &__buttons {
     background: #eee;
     padding: 0.8rem;
