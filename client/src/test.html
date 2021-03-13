@@ -49,6 +49,19 @@
       border-bottom: 1px solid #ddd;
       font-weight: bold;
       }
+
+      .background {
+        background: #eee;
+      border-bottom: 1px solid #ddd;
+      }
+
+      .pr-1 {
+        padding-right:1.2rem;
+      }
+      .bold {
+        font-weight: bold;
+      }
+
       .invoice-box table tr.details td {
       padding-bottom: 20px;
       }
@@ -93,6 +106,12 @@
       }
       .text-center {
           text-align: center !important;
+      }
+
+      .flex {
+        display: flex;
+        gap:1rem;
+        justify-content: flex-end;
       }
 
       .table-footer {
@@ -200,24 +219,28 @@
               </tr>
               </tbody>
               <tfoot>
-                  <tr class="heading">
+                  <tr  class="background">
                       <td>
                           &nbsp;
                       </td>
-                      <td class="text-center">
-                          Sous Total ${price}
+                      <td>
+                      <div class="text-center flex pr-1">
+                          <div class="bold">Sous Total</div><div>${price}</div></div>
                       </td>
                     </tr>
-                    <tr class="heading">
+                    <tr class="background">
                       <td>
                           &nbsp;
                       </td>
                       <td class="text-center">
-                        Crédit  0.00 €
+                          
+                        <div class="text-center flex pr-1">
+                          <div class="bold" style="width:100px;text-align:right">Crédit</div><div style="width:70px;text-align:right">0.00 €</div></div>
+                      </td>
                       </td>
                     </tr>
 
-                    <tr class="heading">
+                    <tr class="background">
                      <td>&nbsp;</td>
                         <td class="text-center">
                         Total ${price}

@@ -223,26 +223,7 @@ const Information = (props) => {
               onChange={onChange}
             />
           </div>
-          <div className='flex'>
-            <label>Mot de passe actuel:</label>
-            <input
-              type='password'
-              placeholder='Mot de passe actuel'
-              name='userPassword'
-              value={customer.userPassword}
-              onChange={onChange}
-            />
-          </div>
-          <div className='flex'>
-            <label>Nouveau mot de passe:</label>
-            <input
-              type='password'
-              placeholder='Nouveau mot de passe'
-              name='userRePassword'
-              value={customer.userRePassword}
-              onChange={onChange}
-            />
-          </div>
+        
         </div>
         {didUpdate && (
           <motion.div className='user-info__form-success'>

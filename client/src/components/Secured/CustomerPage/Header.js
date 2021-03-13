@@ -96,7 +96,7 @@ const Header = (props) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              Kabis
+              Kbis
             </a>
           </div>
           <div className='header-container__item'>

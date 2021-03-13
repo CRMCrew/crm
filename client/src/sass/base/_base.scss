@@ -162,9 +162,8 @@ ul {
   color: #fff !important;
 }
 .bg-in-warning {
-  border-color: $danger !important;
+  border:1px solid $danger !important;
 }
-
 .bg-in-warning:hover {
   background: $danger !important;
   color: #fff !important;
@@ -287,48 +286,48 @@ ul {
 }
 
 .w-125 {
-  width: 12.5rem;
+  width: 12.5rem !important;
 }
 .w-150 {
-  width: 15rem;
+  width: 15rem !important;
 }
 
 .w-175 {
-  width: 17.5rem;
+  width: 17.5rem !important ;
 }
 
 .w-200 {
-  width: 20rem;
+  width: 20rem !important;
 }
 .w-250 {
-  width: 25rem;
+  width: 25rem !important;
 }
 .w-300 {
-  width: 30rem;
+  width: 30rem !important;
 }
 .w-350 {
   width: 35rem;
 }
 .w-400 {
-  width: 40rem;
+  width: 40rem !important;
 }
 .w-450 {
-  width: 45rem;
+  width: 45rem !important;
 }
 .w-500 {
-  width: 50rem;
+  width: 50rem !important;
 }
 .w-550 {
-  width: 55rem;
+  width: 55rem !important;
 }
 .w-600 {
-  width: 60rem;
+  width: 60rem !important;
 }
 .w-650 {
-  width: 65rem;
+  width: 65rem !important;
 }
 .w-700 {
-  width: 70rem;
+  width: 70rem !important;
 }
 
 .p-1 {
