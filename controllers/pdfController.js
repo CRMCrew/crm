@@ -6,7 +6,7 @@ const template = require('../pdf/index');
 const save = async (req, res) => {
   pdf
     .create(template(req.body, {}))
-    .toFile(`${appDir}/pdf/${req.body.itemId}.pdf`, (err) => {
+    .toFile(`${appDir}/pdf/files/${req.body.itemId}.pdf`, (err) => {
       if (err) {
         res.status(400).send({ error: err });
       } else {
@@ -18,7 +18,7 @@ const save = async (req, res) => {
 const get = async (req, res) => {
   const { customerId, itemId } = req.params;
 
-  const dir = `${appDir}/pdf/${itemId}.pdf`;
+  const dir = `${appDir}/pdf/files/${itemId}.pdf`;
   console.log(' dir', dir);
   res.sendFile(dir);
 };
