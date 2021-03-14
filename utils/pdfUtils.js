@@ -3,6 +3,7 @@ var path = require('path');
 var appDir = path.dirname(require.main.filename);
 const template = require('../pdf/index');
 
+
 const pdf = require('html-pdf');
  const savePdf = (pdfTemplate, fileName) => {
         pdf
@@ -15,6 +16,7 @@ const pdf = require('html-pdf');
           }
         });
 }
+
 
 const reCreatePDF = async () => {
         const customers = await Customer.find().populate({ path: 'inventories', populate: { path: 'inventory' } });
@@ -40,45 +42,9 @@ const reCreatePDF = async () => {
                                 }
                                 savePdf(template(params), group._id)
                         })
-                        
-                      
-                        // console.log(group)
-                        // console.log(group.inventory)
-
-                        
                 }
-                // const customer = group.customer;
-                // const params = {
-                //         itemId: group._id,
-                //         customerId: customer._id,
-                //         itemName : `${items[0].text} ${items[1].text} ${items[2].text}`,
-                //         date: "test",
-                //         price: originalPrice,
-                //         factureId: uid(16),
-                //         ville: customer.ville,
-                //         country: customer.country,
-                //         postalCode: customer.postalCode,
-                //         phone: customer.phone,
-                //         userName: `${customer.firstName} ${customer.lastName}`,
-
-                // }
-                // console.log(params)
-               // console.log(customer)
         })
-
-
-
-        // itemId: group._id,
-        // customerId: customer._id,
-        // itemName: `${items[0].text} ${items[1].text} ${items[2].text}`,
-        // date: date,
-        // price: originalPrice,
-        // factureId: uid(16),
-        // ville: customer.ville,
-        // country: customer.country,
-        // postalCode: customer.postalCode,
-        // phone: customer.phone,
-        // userName: `${customer.firstName} ${customer.lastName}`,
+     
 }
 
 module.exports = {

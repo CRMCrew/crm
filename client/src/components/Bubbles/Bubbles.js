@@ -1,7 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Bubbles = () => {
   const containerRef = useRef();
+
+  useEffect(() => {
+    const timer = setInterval(createBubble, 1200);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   const createBubble = () => {
     if (!containerRef.current) return;
@@ -16,7 +23,6 @@ const Bubbles = () => {
     }, 5000);
   };
 
-  setInterval(createBubble, 1200);
   return <div className='bubble-container' ref={containerRef}></div>;
 };
 
