@@ -109,7 +109,8 @@ const HomePage = (props) => {
       const isMax = price <= max;
 
       const isTrue =
-        col1?.toLowerCase().indexOf(filters?.search.toLowerCase()) > -1 || price.toString().indexOf(filters?.search.toLocaleLowerCase()) > -1;
+        col1?.toLowerCase().indexOf(filters?.search.toLowerCase()) > -1 ||
+        price.toString().indexOf(filters?.search.toLocaleLowerCase()) > -1;
 
       return isTrue && isMin && isMax;
     });
@@ -136,8 +137,10 @@ const HomePage = (props) => {
           <motion.tr key={group._id} variants={tdItem}>
             {group.items.map((item, index) => {
               let text = item.text;
+              let className = '';
               if (index === 3) {
                 text = formatMoney(item.text);
+                className = '';
               }
               return (
                 <AnimatePresence>

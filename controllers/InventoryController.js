@@ -1,4 +1,8 @@
 const Inventory = require('../models/Inventory/Inventory');
+const readXlsxFile = require('read-excel-file/node');
+
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
 
 // **** Get Inventory Groups ****\\
 const getInventoryGroups = async (req, res) => {
@@ -42,10 +46,42 @@ const updateInventoryItems = async (req, res) => {
   // res.send(`id: ${id},  body: ${body[0].text}`);
 };
 
+const createFromExcel = async (req, res) => {
+  await readXlsxFile(`${appDir}/wines.xlsx`).then((rows) => {
+    // rows.forEach((row) => {
+    for (const row of rows) {
+      const price = row[3].replace('€', '').replace(/\s/g, '').trim();
+
+      const inv = {
+        'isActive': true,
+        'itemsGroup': [],
+        'name': 'Group 1',
+        'items': [
+          { text: row[0] },
+          { text: row[1] },
+          { text: row[2] },
+          { text: price },
+        ],
+      };
+
+      const cus = new Inventory(inv);
+      try {
+        const inventroy = cus.save();
+        // res.status(201).send(inventroy);
+      } catch (err) {
+        // res.status(400).send({ error: err });
+      }
+    }
+  });
+
+  console.log(appDir);
+};
+
 module.exports = {
   saveInventory,
   getInventoryGroups,
   updateGroup,
   deleteGroup,
   updateInventoryItems,
+  createFromExcel,
 };
