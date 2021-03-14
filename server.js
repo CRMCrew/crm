@@ -19,10 +19,17 @@ const depositLogsRouter = require('./routers/DepositLogsRouter');
 const pdfRouter = require('./routers/pdfRouter');
 const widthdrawRouter = require('./routers/withdrawRouter');
 const refreshRouter = require('./routers/refreshRouter');
+const { reCreatePDF } = require('./utils/pdfUtils');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const origin = process.env.ORIGIN || 'http://localhost:3000';
+
+
+// re creating pdf 
+reCreatePDF();
+
 app.use(
   cors({
     credentials: true,

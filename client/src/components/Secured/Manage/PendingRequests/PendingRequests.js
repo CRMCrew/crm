@@ -38,7 +38,7 @@ const PendingRequests = () => {
       userName: `${customer.firstName} ${customer.lastName}`,
     };
 
-    console.log('saving pdf');
+ 
     await api.post(`pdf/save`, pdfParams);
     console.log('upding status');
     await api.put(`customers-inventory/update-one/${group._id}`, {

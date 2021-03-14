@@ -1,18 +1,12 @@
-const pdf = require('html-pdf');
+
+const { savePdf  }  = require('../utils/pdfUtils')
 var path = require('path');
 var appDir = path.dirname(require.main.filename);
 const template = require('../pdf/index');
 
 const save = async (req, res) => {
-  pdf
-    .create(template(req.body, {}))
-    .toFile(`${appDir}/pdf/files/${req.body.itemId}.pdf`, (err) => {
-      if (err) {
-        res.status(400).send({ error: err });
-      } else {
-        res.status(200).send({ success: 0 });
-      }
-    });
+  const fileName = req.body.itemId
+  res.send(savePdf(template(req.body), fileName));
 };
 
 const get = async (req, res) => {
