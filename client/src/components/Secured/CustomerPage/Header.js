@@ -106,7 +106,7 @@ const Header = (props) => {
           <div
             className='header-container__item'
             onClick={() => {
-              setIsWithdraw((prev) => !prev);
+              // setIsWithdraw((prev) => !prev);
             }}
           >
             <i className='fas fa-money-bill'></i>

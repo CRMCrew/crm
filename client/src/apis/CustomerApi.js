@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 const cookie = new Cookies();
 
-const baseURL = process.env.REACT_APP_BACKEND_URL;
+const baseURL =  "https://www.champagnedeutz.org";
 let headers = {};
 
 headers.Authorization = `Bearer ${cookie.get('token')}`;

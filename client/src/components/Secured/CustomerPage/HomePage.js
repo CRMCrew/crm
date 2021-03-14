@@ -170,7 +170,7 @@ const HomePage = (props) => {
         >
           <div className='cards-container__content'>
             <h2>
-              <i className='fas fa-wine-glass-alt'></i> CHAMPAGNE
+              <i className='fas fa-wine-glass-alt'></i> SPIRITUEUX
             </h2>
             <section className='cards-container__toolbar'>
               <div className='cards-container__filters'>
