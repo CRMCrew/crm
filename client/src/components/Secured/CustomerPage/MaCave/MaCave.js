@@ -76,7 +76,7 @@ const MaCave = ({ headers, inventories }) => {
             </span>
           </div>
           <div
-            className={`ma-cave__tab ${renderIsSelected(2)} blinker`}
+            className={`ma-cave__tab ${renderIsSelected(2)}`}
             onClick={() => setMenu(2)}
           >
             Offres

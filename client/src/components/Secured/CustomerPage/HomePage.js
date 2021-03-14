@@ -109,7 +109,7 @@ const HomePage = (props) => {
       const isMax = price <= max;
 
       const isTrue =
-        col1?.toLowerCase().indexOf(filters?.search.toLowerCase()) > -1;
+        col1?.toLowerCase().indexOf(filters?.search.toLowerCase()) > -1 || price.toString().indexOf(filters?.search.toLocaleLowerCase()) > -1;
 
       return isTrue && isMin && isMax;
     });

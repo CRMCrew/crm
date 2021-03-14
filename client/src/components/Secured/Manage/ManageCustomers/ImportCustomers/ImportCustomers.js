@@ -112,7 +112,7 @@ const ImportCustomers = () => {
   }, []);
   const renderUserContent = () => {
     return (
-      users && (
+      (
         <motion.div
           // className='import-customers__list'
           className='customers__table'
@@ -132,7 +132,7 @@ const ImportCustomers = () => {
             <div>campgin</div>
           </div>
 
-          {users.map((user, index) => {
+          { users && users.map((user, index) => {
             return (
               <div
                 className={`import-customers__item ${
