@@ -51,8 +51,8 @@ const logoTextVariant = {
 
 const Login = (props) => {
   const [userDetails, setUserDetails] = useState({
-    email: 'motiphone2003@gmail.com',
-    password: '1234',
+    email: '',
+    password: '',
     hasError: false,
   });
 

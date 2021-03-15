@@ -14,11 +14,18 @@ const Pagination = ({ list, pageChanged, currentPage = 1, maxItems = 5 }) => {
   const onPageChanges = (x) => {
     pageChanged(x);
   };
+
+
+  
   const renderPages = () => {
     let list = [];
-    for (let i = -1; i < pages - 1; i++) {
-      list.push(i + 1);
-    }
+    const nextPage = parseInt(currentPage) + 5;
+
+    const maxPages = pages > 5 ? nextPage : pages;
+    if (pages)
+      for (let i = currentPage - 1; i < maxPages - 1; i++) {
+        list.push(i + 1);
+      }
 
     return list.map((index) => (
       <div

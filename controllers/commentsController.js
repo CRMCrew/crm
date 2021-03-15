@@ -13,6 +13,7 @@ const deleteComment = async (req, res) => {
   res.send(data);
 };
 
+
 const getAllByOwner = async (req, res) => {
   const id = req.params.id;
   const data = await Comment.getAllByOwner({ owner: id });
