@@ -51,7 +51,15 @@ const PendingOfferRequests = () => {
     toast.success('👍 Order deleted.');
   };
 
-  const deleteOffer = (group, offer) => {
+  const deleteOffer = async (group, offer) => {
+    console.log(group._id);
+    const { data } = await api.post(
+      `customers-inventory/delete-offer/${group._id}`,
+      {
+        _id: offer._id,
+      }
+    );
+    console.log(data);
     group.offers = group.offers.filter((x) => x._id !== offer._id);
 
     setGroups(groups.map((g) => (g._id === group._id ? group : g)));

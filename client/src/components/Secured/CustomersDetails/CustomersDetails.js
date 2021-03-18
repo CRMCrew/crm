@@ -51,10 +51,10 @@ const CustomersDetails = (props) => {
     if (customer.userPassword !== '') {
       updates = { ...updates, userPassword: customer.userPassword };
     }
-
+    console.log('updates', updates);
     await api.patch('customers/update/', {
       _id: customer._id,
-      update: updates,
+      updates: updates,
     });
 
     toast.info('🤘 User details updated!');
@@ -208,7 +208,7 @@ const CustomersDetails = (props) => {
                   <div>
                     <SelectCampaign
                       value={customer.campaign}
-                      name='status'
+                      name='campaign'
                       onChange={onChange}
                     />
                   </div>

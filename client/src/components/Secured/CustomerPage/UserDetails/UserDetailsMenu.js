@@ -57,7 +57,7 @@ const UserDetails = () => {
             className={`ma-cave__tab ${renderIsSelected(3)}`}
             onClick={() => setMenu(3)}
           >
-            Password
+            Mot de passe
           </div>
         </section>
         <section className=''>{renderTab()}</section>

@@ -72,7 +72,7 @@ const getByOwner = async (req, res) => {
 
 const updateById = async (req, res) => {
   const { _id, updates } = req.body;
-  console.log(_id);
+  console.log(updates);
   delete updates.userRePassword;
   if (updates.userPassword.trim() === '') delete updates.userPassword;
   const response = await Customer.updateOne({ _id }, updates);

@@ -49,7 +49,8 @@ const VentsRequets = (props) => {
       groups &&
       groups.map((group) => {
         const date = moment(group.createdAt).format('DD-MM-YY HH:mm:ss');
-        const offer = group.offers[0];
+
+        const offer = group.offers.sort((a, b) => b.offer - a.offer)[0];
         const benefits = parseInt(offer.offer) - parseInt(offer.price);
 
         return (

@@ -56,6 +56,7 @@ const pushOffers = async (req, res) => {
 const deleteOffer = async (req, res) => {
   const data = req.body;
   const _id = req.params.id;
+  console.log(_id, 'offer', data._id);
   const response = await CustomerInventory.updateOne(
     { _id },
     { $pull: { offers: { _id: data._id } } }
