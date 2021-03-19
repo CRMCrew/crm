@@ -14,7 +14,6 @@ html {
 @media only screen and (max-width: 1400px) {
   html {
     font-size: 40.5%;
-   
   }
 }
 body {
@@ -40,6 +39,16 @@ ul {
   text-align: center !important;
 }
 // WIDTH
+
+.link {
+  color: $blue-dark;
+  border-bottom: 1px solid $blue-deep;
+  padding: 0 0 0.07rem 0;
+  transition: all 1;
+  &:hover {
+    width: 0px;
+  }
+}
 
 .w-1 {
 }
@@ -168,7 +177,7 @@ ul {
   color: #fff !important;
 }
 .bg-in-warning {
-  border:1px solid $danger !important;
+  border: 1px solid $danger !important;
 }
 .bg-in-warning:hover {
   background: $danger !important;
