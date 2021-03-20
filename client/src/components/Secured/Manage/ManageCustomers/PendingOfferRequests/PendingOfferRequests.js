@@ -4,6 +4,7 @@ import PendingOfferRequestsItem from './PendingOfferRequestsItem';
 import { formatMoney } from '../../../../../utils/formatting';
 import { ToastContainer, toast } from 'react-toastify';
 import { uid } from 'uid';
+import moment from 'moment';
 
 const PendingOfferRequests = () => {
   const [groups, setGroups] = useState(null);
@@ -29,7 +30,12 @@ const PendingOfferRequests = () => {
     const temp = groups.map((g) => {
       if (g._id === group._id) {
         const price = group.inventory.items[3].text;
-        const data = { _id: uid(16), price, offer };
+        const data = {
+          _id: uid(16),
+          price,
+          offer,
+          date: moment().add(3, 'days'),
+        };
         g.offers.push(data);
         addOffer(g._id, data);
 

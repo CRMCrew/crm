@@ -83,7 +83,7 @@ const ImportCustomers = () => {
     };
     try {
       const { data } = await api.post(
-        'files//execute-import-customers',
+        'files/execute-import-customers',
         payload
       );
       setUsers(null);
@@ -96,7 +96,9 @@ const ImportCustomers = () => {
         draggable: false,
         progress: false,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log('err', err);
+    }
   };
   useEffect(() => {
     const getUsers = async () => {
@@ -112,27 +114,27 @@ const ImportCustomers = () => {
   }, []);
   const renderUserContent = () => {
     return (
-      (
-        <motion.div
-          // className='import-customers__list'
-          className='customers__table'
-          variants={container}
-          initial='hidden'
-          animate='show'
-        >
-          <div className={`import-customers__item bg-info`}>
-            <div style={{ width: '1rem' }}>#</div>
-            <div>First name</div>
-            <div>Last name</div>
-            <div>Phone</div>
-            <div>Email</div>
-            <div>Country</div>
-            <div>Status</div>
-            <div>owner</div>
-            <div>campgin</div>
-          </div>
+      <motion.div
+        // className='import-customers__list'
+        className='customers__table'
+        variants={container}
+        initial='hidden'
+        animate='show'
+      >
+        <div className={`import-customers__item bg-info`}>
+          <div style={{ width: '1rem' }}>#</div>
+          <div>First name</div>
+          <div>Last name</div>
+          <div>Phone</div>
+          <div>Email</div>
+          <div>Country</div>
+          <div>Status</div>
+          <div>owner</div>
+          <div>campgin</div>
+        </div>
 
-          { users && users.map((user, index) => {
+        {users &&
+          users.map((user, index) => {
             return (
               <div
                 className={`import-customers__item ${
@@ -152,16 +154,15 @@ const ImportCustomers = () => {
             );
           })}
 
-          <div>
-            <button className='button bg-success' onClick={createCustomers}>
-              Confirm
-            </button>
-            <button className='button bg-warning' onClick={canceelUpload}>
-              Cancel
-            </button>
-          </div>
-        </motion.div>
-      )
+        <div>
+          <button className='button bg-success' onClick={createCustomers}>
+            Confirm
+          </button>
+          <button className='button bg-warning' onClick={canceelUpload}>
+            Cancel
+          </button>
+        </div>
+      </motion.div>
     );
   };
 

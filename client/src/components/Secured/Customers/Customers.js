@@ -244,7 +244,7 @@ const Customers = (props) => {
     try {
       await api.patch('customers/update', {
         _id: customer._id,
-        update: { status: customer.status },
+        updates: { status: customer.status },
       });
 
       toast.info('🤟 Status updated.', {

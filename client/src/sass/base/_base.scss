@@ -50,6 +50,22 @@ ul {
   }
 }
 
+.font-size-1 {
+  font-size: 1.1em;
+}
+
+.font-size-2 {
+  font-size: 1.2em;
+}
+
+.font-size-3 {
+  font-size: 1.3em;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
 .w-1 {
 }
 
@@ -161,6 +177,10 @@ ul {
 .bg-warning {
   background-color: $danger;
   color: #fff;
+}
+
+.color-warning {
+  background-color: $danger;
 }
 
 .bg-success {

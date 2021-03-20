@@ -15,17 +15,23 @@ const Pagination = ({ list, pageChanged, currentPage = 1, maxItems = 5 }) => {
     pageChanged(x);
   };
 
-
-  
   const renderPages = () => {
     let list = [];
     const nextPage = parseInt(currentPage) + 5;
 
     const maxPages = pages > 5 ? nextPage : pages;
-    if (pages)
-      for (let i = currentPage - 1; i < maxPages - 1; i++) {
-        list.push(i + 1);
-      }
+    let startCount = currentPage - 1;
+
+    if (parseInt(currentPage) > 2) {
+      startCount -= 3;
+    } else if (parseInt(currentPage) > 1) {
+      startCount -= 2;
+    } else if (parseInt(currentPage) > 0) {
+      startCount--;
+    }
+    for (let i = startCount; i < maxPages - 1; i++) {
+      list.push(i + 1);
+    }
 
     return list.map((index) => (
       <div

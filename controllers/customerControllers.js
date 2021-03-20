@@ -72,9 +72,11 @@ const getByOwner = async (req, res) => {
 
 const updateById = async (req, res) => {
   const { _id, updates } = req.body;
-  console.log(updates);
+
   delete updates.userRePassword;
-  if (updates.userPassword.trim() === '') delete updates.userPassword;
+  if (updates.userPassword && uptes.userPassword.trim() === '') {
+    delete updates.userPassword;
+  }
   const response = await Customer.updateOne({ _id }, updates);
   res.json(response);
 };
@@ -105,12 +107,9 @@ const getCustomerDetails = async (req, res) => {
 
 const logOut = async (req, res) => {
   const { customer } = req.body;
-  console.log(customer._id);
-
   try {
     console.log('customer', customer._id);
     await Customer.updateOne({ _id: customer._id }, { tokens: [] });
-    console.log(' logging out');
     res.status(202).send({ 'message': 'logged out' });
   } catch (error) {
     res.send('error' + error);

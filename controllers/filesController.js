@@ -16,7 +16,7 @@ const readXlsFile = async (newName) => {
         lastName: row[1],
         email: row[2],
         phone: row[3],
-        country: 'Switzerland',
+        country: row[4],
         status: 0,
       });
     }
@@ -38,6 +38,7 @@ const importCustomer = async (req, res) => {
   let fileId = '';
   newName = uuidv4();
   fileId = newName;
+
   if (Array.isArray(req.files.file)) {
     let index = 0;
     for (const file of req.files.file) {
@@ -73,8 +74,10 @@ const executeImportCustomer = async (req, res) => {
   let count = 0;
   const added = [];
   while (hasFile) {
-    const name = `${fileId}_${count++}`;
+    const name = `${fileId}_${++count}`;
+    console.log(' response', appDir, 'name: ', name);
     if (fs.existsSync(`${appDir}/uploads/${name}.xlsx`)) {
+      console.log(' found', appDir);
       try {
         users = await readXlsFile(name);
         'users', users;
@@ -84,7 +87,7 @@ const executeImportCustomer = async (req, res) => {
             lastName: user.lastName,
             email: user.email,
             phone: user.phone,
-            country: 'Switzerland',
+            country: user.country,
             status: 0,
             campaign: campaign,
             userName: 'test',
@@ -93,6 +96,7 @@ const executeImportCustomer = async (req, res) => {
           const customer = new Customer(newC);
           try {
             const response = await customer.save();
+
             added.push(newC);
           } catch (e) {}
         }
