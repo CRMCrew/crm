@@ -94,7 +94,7 @@ const OffersRequets = (props) => {
           }
           console.log(date);
 
-          const isAfter = moment(offer.date).isAfter();
+          const isAfter = moment(offer.date).isAfter(moment());
           console.log(isAfter);
           date = moment(offer.date).format('DD-MM-YY HH:mm:ss');
           return (
