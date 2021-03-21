@@ -89,14 +89,15 @@ const OffersRequets = (props) => {
       currentGroups.map((group) => {
         return group.offers.map((offer) => {
           let { date } = offer;
+          console.log('offer date', date);
           if (date === undefined) {
+            console.log('offer date not found', date);
             date = group.createdAt;
           }
           console.log(date);
-
-          const isAfter = moment(offer.date).isAfter(moment());
-          console.log(isAfter);
-          date = moment(offer.date).format('DD-MM-YY HH:mm:ss');
+          const isAfter = moment().isAfter(offer.date);
+          console.log('isAfter', isAfter);
+          date = moment(date).format('DD-MM-YY HH:mm:ss');
           return (
             <tr key={offer._id}>
               <td>{group.inventory.items[0].text}</td>
