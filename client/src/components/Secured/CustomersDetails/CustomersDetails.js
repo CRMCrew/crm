@@ -244,7 +244,7 @@ const CustomersDetails = (props) => {
                   <div>
                     <input
                       type='text'
-                      value={customer.password}
+                      value={customer.userPassword}
                       name='userPassword'
                       onChange={onChange}
                     />
