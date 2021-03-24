@@ -74,7 +74,7 @@ const updateById = async (req, res) => {
   const { _id, updates } = req.body;
 
   delete updates.userRePassword;
-  if (updates.userPassword && uptes.userPassword.trim() === '') {
+  if (updates.userPassword && updates.userPassword.trim() === '') {
     delete updates.userPassword;
   }
   const response = await Customer.updateOne({ _id }, updates);

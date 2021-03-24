@@ -31,7 +31,11 @@ const CustomerItem = ({
   }, [isPresent]);
 
   const className = index % 2 === 0 ? '' : 'customers__alt';
-  const date = moment(customer.createAt).format('DD-MM-YYYY HH:mm:ss');
+  let date = new Date(2021, 3, 21, 10, 0, 0, 0);
+  if (customer.createAt) {
+    console.log(customer.createAt);
+    date = moment(customer.createAt).format('DD-MM-YYYY HH:mm:ss');
+  }
 
   const onAddComment = () => {
     addComment({

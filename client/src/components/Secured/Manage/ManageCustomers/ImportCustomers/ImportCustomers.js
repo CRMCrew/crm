@@ -22,6 +22,7 @@ const ImportCustomers = () => {
   const onSetUsers = (newUsers) => {
     setUsers(newUsers.users);
     setFileId(newUsers.id);
+    console.log(newUsers.id);
   };
 
   const container = {

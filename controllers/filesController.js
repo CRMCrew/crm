@@ -53,8 +53,9 @@ const importCustomer = async (req, res) => {
     }
   } else {
     const name = req.files.file.name;
-    newName = `${uuidv4()}_1`;
+    newName = `${fileId}_1`;
     moveFile(req.files.file, newName);
+
     try {
       users = await readXlsFile(newName);
     } catch (err) {
@@ -63,7 +64,8 @@ const importCustomer = async (req, res) => {
   }
 
   const obj = { id: fileId, users };
-
+  console.log('object', obj);
+  console.log('name', newName);
   res.send(obj);
 };
 
@@ -75,15 +77,14 @@ const executeImportCustomer = async (req, res) => {
   const added = [];
   while (hasFile) {
     const name = `${fileId}_${++count}`;
-    console.log(' response', appDir, 'name: ', name);
+
     if (fs.existsSync(`${appDir}/uploads/${name}.xlsx`)) {
-      console.log(' found', appDir);
       try {
         users = await readXlsFile(name);
-        'users', users;
+        // 'users', users;
         for (user of users) {
           const newC = {
-            firstName: guser.firstName,
+            firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
             phone: user.phone,

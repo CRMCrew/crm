@@ -24,6 +24,7 @@ const customerSchema = new mongoose.Schema(
     address: { type: String, default: '', trim: true },
     postalCode: { type: String, default: '', trim: true },
     ville: { type: String, default: '', trim: true },
+    createAt: { type: Date, default: new Date() },
     tokens: [
       {
         token: {
