@@ -86,19 +86,38 @@ const PendingOfferRequests = () => {
   };
 
   const renderBody = () => {
+    const totalPrice = groups.reduce((acc, group) => {
+      return acc + parseInt(group.inventory.items[3].text);
+    }, 0);
+    const totalBalance = groups.reduce((acc, item) => {
+      return parseInt(item.customer.balance);
+    }, 0);
+
     return (
-      groups &&
-      groups.map((group, index) => {
-        return (
-          <PendingOfferRequestsItem
-            group={group}
-            showOffers={showOffers}
-            createOffer={createOffer}
-            index={index}
-            deleteOrder={deleteOrder}
-          />
-        );
-      })
+      <div>
+        {groups &&
+          groups.map((group, index) => {
+            return (
+              <PendingOfferRequestsItem
+                group={group}
+                showOffers={showOffers}
+                createOffer={createOffer}
+                index={index}
+                deleteOrder={deleteOrder}
+              />
+            );
+          })}
+
+        <div className='customers-log header p-2 mb-1'>Totals:</div>
+        <div className='flex'>
+          <div className='w-75'>Price:</div>
+          <div>{formatMoney(totalPrice)} </div>
+        </div>
+        <div className='flex'>
+          <div className='w-75'>Balance:</div>
+          <div>{formatMoney(totalBalance)}</div>{' '}
+        </div>
+      </div>
     );
   };
   const renderOffersList = () => {
@@ -143,7 +162,7 @@ const PendingOfferRequests = () => {
     <div className='pending-requests'>
       <div className='pending-requests__orders-list'>
         <div className='customers-log header'>{renderHeader()}</div>
-        <div>{renderBody()}</div>
+        <div>{groups && renderBody()}</div>
       </div>
       <div className='pending-orders'>
         <div className='pending-orders__header'>

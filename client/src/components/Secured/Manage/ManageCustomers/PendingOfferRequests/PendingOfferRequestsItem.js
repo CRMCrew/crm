@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { formatMoney } from '../../../../../utils/formatting';
 import moment from 'moment';
 
@@ -10,6 +11,7 @@ const PendingOfferRequestsItem = ({
   index,
   deleteOrder,
 }) => {
+  const homepageLink = `/backoffice/customers/details/${group.customer._id}`;
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -30,7 +32,10 @@ const PendingOfferRequestsItem = ({
         className={`customers-log__item ${index % 2 == 0 ? 'alt' : ''}`}
       >
         <div>
-          {group.customer.firstName} {group.customer.lastName}
+          <Link className='link' to={homepageLink}>
+            sdfsd
+            {group.customer.firstName} {group.customer.lastName}
+          </Link>
         </div>
         <div>{balance}</div>
         <div>{group.inventory.items[0].text}</div>
