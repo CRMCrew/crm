@@ -88,10 +88,6 @@ const CustomerItem = ({
                       status,
                     };
                     setIsVisible(false);
-                    console.log('updating ', {
-                      _id: customer._id,
-                      updates: { status: customer.status },
-                    });
 
                     updateCustomer(newcustomer);
                   }}

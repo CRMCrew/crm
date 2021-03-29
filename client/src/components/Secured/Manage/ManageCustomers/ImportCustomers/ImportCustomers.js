@@ -144,7 +144,7 @@ const ImportCustomers = () => {
               >
                 <div style={{ width: '1rem' }}>{index + 1}</div>
                 <div>{user.firstName}</div>
-                <div>{user.firstName}</div>
+                <div>{user.lastName}</div>
                 <div>{user.phone}</div>
                 <div>{user.email}</div>
                 <div>{user.country}</div>

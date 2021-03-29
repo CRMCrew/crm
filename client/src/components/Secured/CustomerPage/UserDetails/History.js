@@ -14,7 +14,6 @@ const History = (props) => {
         `/deposit-logs/get-by-customer/${customer.id}`
       );
       const newLogs = data.filter((x) => parseInt(x.depositType) !== 1);
-      console.log(newLogs);
       setLogs(newLogs);
     };
     getLogs();

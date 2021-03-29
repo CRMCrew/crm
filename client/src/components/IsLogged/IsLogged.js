@@ -13,9 +13,7 @@ const IsLogged = (props) => {
   const mainPath = isAdmin ? '/backoffice' : '/';
 
   const setData = async (data) => {
-    console.log('is admin', data);
     setUser(data);
-    console.log('data', data);
     const customerDetails = {
       email: data.email,
       password: data.userPassword,
@@ -23,14 +21,11 @@ const IsLogged = (props) => {
     if (!isAdmin) {
       const user = await props.login(customerDetails, false);
     } else {
-      console.log('in admin login');
       const user = await props.adminLogin(customerDetails, false);
     }
   };
 
-  console.log(path);
   useEffect(() => {
-    console.log(props);
     let user = null;
     const getUser = async () => {
       try {
@@ -46,12 +41,9 @@ const IsLogged = (props) => {
           user = data;
         }
       } catch (error) {
-        console.log('error', error);
         history.push(mainPath);
       }
-      console.log('userrr', user);
       if (user) {
-        console.log('user found yay');
         setTimeout(() => {
           history.push(path);
         }, 0);

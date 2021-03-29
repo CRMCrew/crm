@@ -9,12 +9,11 @@ import { formatMoney } from '../../../utils/formatting';
 
 import DepositLogs from './DepositLogs';
 const Deposits = ({ customer, user }) => {
-  console.log(customer)
   let newDeposit = {};
   const [deposit, setDeposit] = useState(newDeposit);
   const [error, setError] = useState(null);
   const [logs, setLogs] = useState(null);
-  const [balance,setBalance]  = useState(customer.balance);
+  const [balance, setBalance] = useState(customer.balance);
   newDeposit = {
     ...depoistModal,
     amount: '',
@@ -79,7 +78,7 @@ const Deposits = ({ customer, user }) => {
       });
     }
 
-    setBalance((prev) =>  parseInt(prev) + parseInt(deposit.amount))
+    setBalance((prev) => parseInt(prev) + parseInt(deposit.amount));
     resetNewDeposit();
     data = { ...data, user: user };
     setLogs([...logs, data]);
@@ -88,9 +87,11 @@ const Deposits = ({ customer, user }) => {
 
   return (
     <div className='deposits'>
-      <div className="deposits__balance">
-      <div className='deposits__add-header'>Current Balance</div>
-        <div className='deposits__balance-item'>Current Balance: {formatMoney(balance)}</div>
+      <div className='deposits__balance'>
+        <div className='deposits__add-header'>Current Balance</div>
+        <div className='deposits__balance-item'>
+          Current Balance: {formatMoney(balance)}
+        </div>
       </div>
       <div className='deposits__add-new-deposit'>
         <div className='deposits__add'>
