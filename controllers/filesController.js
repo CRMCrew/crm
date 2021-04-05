@@ -11,6 +11,7 @@ const readXlsFile = async (newName) => {
   await readXlsxFile(`${appDir}/uploads/${newName}.xlsx`).then((rows) => {
     // rows.forEach((row) => {
     for (const row of rows) {
+      console.log(row[1]);
       users.push({
         firstName: row[0],
         lastName: row[1],
@@ -64,12 +65,12 @@ const importCustomer = async (req, res) => {
   }
 
   const obj = { id: fileId, users };
-  console.log('object', obj);
-  console.log('name', newName);
+  console.log('object', users);
   res.send(obj);
 };
 
 const executeImportCustomer = async (req, res) => {
+  console.log('sadas');
   const { fileId, campaign, owner = null } = req.body;
   let hasFile = true;
   let users = [];

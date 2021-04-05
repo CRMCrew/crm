@@ -18,7 +18,6 @@ const Factures = ({ customer }) => {
   }, []);
 
   const downloadPdf = async (itemId) => {
-    console.log('1', customer._id, ' 2', itemId);
     const { data } = await api.get(`/pdf/get/${customer._id}/${itemId}`, {
       responseType: 'blob',
     });

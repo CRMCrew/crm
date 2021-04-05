@@ -20,7 +20,7 @@ const Header = (props) => {
     <header className='header-container'>
       <div className='header-container__brand'>
         <Link to='/backoffice/dashboard'>
-          <img src={img} alt='logo' />
+          <img src={img} alt='logo' style={{ width: '166px' }} />
         </Link>
         <input
           type='text'

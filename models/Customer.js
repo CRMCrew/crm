@@ -70,8 +70,6 @@ customerSchema.methods.generateAuthToken = async function () {
   try {
     customer.tokens = customer.tokens.concat({ token });
     await Customer.updateOne({ _id: customer._id }, { tokens: { token } });
-
-    console.log('custoemr', customer._id);
   } catch (error) {
     console.log(error);
   }
