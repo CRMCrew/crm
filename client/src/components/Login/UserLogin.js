@@ -58,7 +58,7 @@ const UserLogin = (props) => {
   const [wrongPassword, setWrongPassword] = useState(false);
 
   useEffect(() => {
-    document.title = 'champagne Deutz';
+    document.title = 'Sa Sinef';
   }, []);
 
   useEffect(() => {

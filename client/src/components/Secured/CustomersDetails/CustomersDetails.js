@@ -61,7 +61,7 @@ const CustomersDetails = (props) => {
   };
   useEffect(() => {
     getUser();
-    document.title = 'Champagne Deutz - Customer Details';
+    document.title = 'Sa Sinef - Customer Details';
   }, []);
 
   const isSelected = (id) => {

@@ -59,7 +59,7 @@ const Login = (props) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    document.title = 'champagne Deutz';
+    document.title = 'Sa Sinef';
   }, []);
 
   useEffect(() => {

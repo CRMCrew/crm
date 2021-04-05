@@ -90,7 +90,7 @@ const Customers = (props) => {
   }, [customers]);
 
   useEffect(() => {
-    document.title = 'Champagne Deutz - Customers';
+    document.title = 'Sa Sinef - Customers';
     getByOwner(filters);
     const getUsers = async () => {
       try {

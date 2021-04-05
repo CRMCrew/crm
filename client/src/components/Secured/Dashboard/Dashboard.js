@@ -10,7 +10,7 @@ import { containerVariants, itemVariants } from './variants';
 
 const Dashboard = (props) => {
   useEffect(() => {
-    document.title = 'Champagne Deutz - Dashboard';
+    document.title = 'Sa Sinef - Dashboard';
   }, []);
 
   return (
