@@ -178,22 +178,22 @@ module.exports = ({
                         <th class="text-right">Payé à:</th>
                       </tr>
                       <tr>
-                        <td>Sa Sinef contact@champagne-deutz.online</td>
+                        <td>Sa Sinef contact@sasinef.com</td>
                       </tr>
                       <tr>
                         <td>+33 (0)4 89 33 14 11</td>
                       </tr>
                   <tr>
-                        <td>au capital de 6 627 726,00 €, inscrite au RCS de</td>
+                        <td>au capital de 3 702 307.77 €, inscrite au RCS de</td>
                       </tr>
                   <tr>
-                        <td>Reims sous le nom de Sa Sinef avec le numero de</td>
+                        <td>Morangis sous le nom de Sa Sinef avec le numero de</td>
                       </tr>
                       <tr>
-                          <td>siret 33568135900014</td>
+                          <td>siret 42120243300023</td>
                         </tr>
                         <tr>
-                          <td>16 RUE JEANSON 51160 AY Champagne</td>
+                          <td>15 AV ARAGO 91420 MORANGIS</td>
                         </tr>
   
                     </table></td>

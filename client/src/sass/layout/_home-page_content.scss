@@ -1,6 +1,6 @@
 body.mycave {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url(../../images/front-background.webp);
+    url(../../images/customer-forgroend.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -555,27 +555,24 @@ body.mycave {
     }
   }
 
-  
+  &__passowrd-change {
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    margin: 0 0 0 2rem;
+    width: 35rem;
+    text-align: center;
+    border: 2px solid $danger !important;
+  }
 
-&__passowrd-change {
-  padding:.8rem;
-  border-radius: .8rem;
-  margin:0 0 0 2rem;
-  width:35rem;
-  text-align:center;
-  border:2px solid $danger !important;
-}
-
-&__passowrd-change-success {
-  padding:1.8rem;
-  border-radius: .8rem;
-  margin:0 0 0 9rem;
-  width:35rem;
-  font-size:1.1em;
-  text-align:center;
-  border:2px solid $success !important;
-
-}
+  &__passowrd-change-success {
+    padding: 1.8rem;
+    border-radius: 0.8rem;
+    margin: 0 0 0 9rem;
+    width: 35rem;
+    font-size: 1.1em;
+    text-align: center;
+    border: 2px solid $success !important;
+  }
 }
 
 .deposit-history {
