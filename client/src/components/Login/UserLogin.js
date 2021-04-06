@@ -113,7 +113,10 @@ const UserLogin = (props) => {
       </div>
       <Bubbles />
       <div className='login-container__login-info mt-15'>
-        <div className='login-container__logo-container'>
+        <div
+          className='login-container__logo-container'
+          style={{ userSelect: 'none' }}
+        >
           <motion.img src={logoIcon} alt='logo' variants={logoVariant} />
           <motion.img src={logoText} alt='logo' variants={logoTextVariant} />
         </div>
