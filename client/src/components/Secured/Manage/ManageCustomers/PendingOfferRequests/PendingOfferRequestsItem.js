@@ -33,7 +33,6 @@ const PendingOfferRequestsItem = ({
       >
         <div>
           <Link className='link' to={homepageLink}>
-            sdfsd
             {group.customer.firstName} {group.customer.lastName}
           </Link>
         </div>
