@@ -88,7 +88,7 @@ const Header = (props) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              Deposit
+              dépôt
             </a>
           </div>
           <div className='header-container__item'>
