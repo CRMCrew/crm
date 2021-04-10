@@ -54,7 +54,7 @@ app.use('/deposit-logs/', depositLogsRouter);
 app.use('/pdf/', pdfRouter);
 app.use('/withdraw/', widthdrawRouter);
 app.use('/refresh/', refreshRouter);
-app.use('/response', CreditcardDepositRouter);
+app.use('/api', CreditcardDepositRouter);
 
 // serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
