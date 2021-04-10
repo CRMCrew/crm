@@ -70,6 +70,8 @@ const Header = (props) => {
       </FormModel>
     );
   };
+
+  const depositParams = `&CustomerID=${customer._id}`;
   return (
     <header className='header-container'>
       <div className='header-container__brand'>
@@ -79,6 +81,16 @@ const Header = (props) => {
       </div>
       <div className='header-container__toolbar'>
         <div>
+          <div className='header-container__item'>
+            <i class='far fa-credit-card'></i>
+            <a
+              href={`https://buy.oobit.com/ref/sa-sinef?cryptoCurrency=btc&currency=eur${depositParams}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Deposit
+            </a>
+          </div>
           <div className='header-container__item'>
             <i class='fas fa-file-signature'></i>
             <a
