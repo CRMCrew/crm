@@ -4,6 +4,6 @@ const router = new express.Router();
 
 const { getResponse } = require('../controllers/CreditcardDepositController');
 
-router.post('/response', getResponse);
+router.post('/', getResponse);
 
 module.exports = router;

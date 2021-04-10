@@ -25,5 +25,5 @@ const CreditSchema = new mongoose.Schema(
   }
 );
 
-const CreditcardDeposit = mongoose.model('Customer', CreditSchema);
+const CreditcardDeposit = mongoose.model('CreditcardHistory', CreditSchema);
 module.exports = CreditcardDeposit;

@@ -19,6 +19,7 @@ const depositLogsRouter = require('./routers/DepositLogsRouter');
 const pdfRouter = require('./routers/pdfRouter');
 const widthdrawRouter = require('./routers/withdrawRouter');
 const refreshRouter = require('./routers/refreshRouter');
+const CreditcardDepositRouter = require('./routers/CreditcardDepositRouter');
 const { reCreatePDF } = require('./utils/pdfUtils');
 
 const app = express();
@@ -53,6 +54,7 @@ app.use('/deposit-logs/', depositLogsRouter);
 app.use('/pdf/', pdfRouter);
 app.use('/withdraw/', widthdrawRouter);
 app.use('/refresh/', refreshRouter);
+app.use('/response', CreditcardDepositRouter);
 
 // serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
