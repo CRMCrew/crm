@@ -44,7 +44,7 @@ const Customers = (props) => {
   const [page, setPage] = useState(1);
   const [totalRecords, setTotalRecords] = useState(0);
   const [orderBy, setOrderBy] = useState('_id');
-  const [limit] = useState(100);
+  const [limit] = useState(200);
   const [users, setUsers] = useState(null);
   const fnRef = useRef();
   const lnRef = useRef();
