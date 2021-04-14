@@ -71,7 +71,7 @@ const Header = (props) => {
     );
   };
 
-  const depositParams = `&user=${customer.email}&p_CustomerID=${customer._id}`;
+  const depositParams = `&email=${customer.email}&p_CustomerID=${customer._id}`;
   return (
     <header className='header-container'>
       <div className='header-container__brand'>
