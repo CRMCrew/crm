@@ -13,7 +13,6 @@ const save = async (req, res) => {
 };
 
 const get = async (req, res) => {
-  console.log('here');
   const filters = req.body;
   const response = await CustomersLogs.find(filters)
     .populate('customer')

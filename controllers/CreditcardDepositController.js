@@ -6,7 +6,7 @@ const getResponse = async (req, res) => {
   const test = new Test({ outPut: JSON.stringify(req.body) });
   try {
     const creditHistory = await cus.save();
-    const damn = test.save(test);
+    console.log('request body: ', req.body);
     res.status(201).send(creditHistory);
   } catch (err) {
     console.log(err);
