@@ -37,8 +37,16 @@ const DespositLogs = () => {
     return (
       groups &&
       groups.map((group, index) => {
-        console.log(group);
-        const homepageLink = `/backoffice/customers/details/${group.customer._id}`;
+        if (group.customer === null) {
+          group.customer = {
+            _id: 0,
+            firstName: 'unavialable',
+            lastName: '',
+          };
+        }
+        const homepageLink = `/backoffice/customers/details/${
+          group.customer === null ? '0' : group.customer._id
+        }`;
         const createAt = moment(group.createdAt).format('DD-MM-YY HH:mm:ss');
         const amount = formatMoney(group.amount);
         const method = group.method;

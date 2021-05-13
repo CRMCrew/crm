@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 const cookie = new Cookies();
 
 const baseURL =
-  process.env.REACT_APP_BACKEND_URL || 'https://www.champagnedeutz.org';
+  process.env.REACT_APP_BACKEND_URL || 'https://www.sa-sinef.com/';
 
 let headers = {};
 
