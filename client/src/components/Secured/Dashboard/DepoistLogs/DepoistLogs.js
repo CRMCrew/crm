@@ -3,12 +3,14 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import api from '../../../../apis/api';
 import { formatMoney } from '../../../../utils/formatting';
-const DWaitingRequests = () => {
+import { deposits } from '../../../../utils/static_data';
+
+const DespositLogs = () => {
   const [groups, setGroups] = useState(null);
 
   useEffect(() => {
     const getData = async (req, res) => {
-      const { data } = await api.post('customers-inventory/get', {
+      const { data } = await api.get('/deposit-logs/getAll', {
         limit: 10,
         status: 0,
       });
@@ -21,11 +23,12 @@ const DWaitingRequests = () => {
   const renderHeader = () => {
     return (
       <div className={`customers-log__item header`}>
+        <div>Created at</div>
         <div>Customer</div>
-        <div>Balance</div>
-        <div>Product</div>
-        <div>Price</div>
-        <div>Expiration</div>
+        <div>Type</div>
+        <div>Method</div>
+        <div>Amount</div>
+        <div>Admin</div>
       </div>
     );
   };
@@ -34,29 +37,28 @@ const DWaitingRequests = () => {
     return (
       groups &&
       groups.map((group, index) => {
+        console.log(group);
         const homepageLink = `/backoffice/customers/details/${group.customer._id}`;
-        const price = formatMoney(group.inventory.items[3].text);
-        const balance = formatMoney(group.customer.balance);
-        const date = moment(group.expiration).format('DD-MM-YY HH:mm:ss');
-
+        const createAt = moment(group.createdAt).format('DD-MM-YY HH:mm:ss');
+        const amount = formatMoney(group.amount);
+        const method = group.method;
         return (
           <div
             className={`customers-log__item ${index % 2 === 0 ? 'alt' : ''}`}
           >
+            <div>{createAt}</div>
             <div>
               <Link className='link' to={homepageLink}>
                 {group.customer.firstName} {group.customer.lastName}
               </Link>
             </div>
-            <div>{balance}</div>
+            <div>{deposits[group.depositType]}</div>
+            <div>{method}</div>
+            <div>{amount}</div>
+
             <div>
-              {' '}
-              <Link to='/backoffice/manage/' className='link'>
-                {group.inventory.items[0].text}
-              </Link>
+              {group.user.firstName} {group.user.lastName}
             </div>
-            <div>{price}</div>
-            <div>{date}</div>
           </div>
         );
       })
@@ -70,4 +72,4 @@ const DWaitingRequests = () => {
     </div>
   );
 };
-export default DWaitingRequests;
+export default DespositLogs;

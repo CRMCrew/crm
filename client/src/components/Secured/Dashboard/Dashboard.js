@@ -5,10 +5,13 @@ import { connect } from 'react-redux';
 
 import CustomerLogs from './DCustomersLogs/CustomersLogs';
 import DWaitingRequests from './NewPending/DWaitingRequests';
+import DepositLogs from './DepoistLogs/DepoistLogs';
 
 import { containerVariants, itemVariants } from './variants';
+import PendingWithdraw from '../../PendingWithdraw/PendingWithdraw';
+import CreditcardLog from '../../CreditcardLog/CreditcardLog';
 
-const Dashboard = (props) => {
+const Dashboard = ({ customer }) => {
   useEffect(() => {
     document.title = 'Sa Sinef - Dashboard';
   }, []);
@@ -37,9 +40,9 @@ const Dashboard = (props) => {
           variants={itemVariants}
         >
           <div className='card-container__header bg-warning'>
-            Pending offers requests
+            Pending Withdraw requests
           </div>
-          pending offers
+          <PendingWithdraw />
         </motion.div>
 
         <motion.div
@@ -47,8 +50,9 @@ const Dashboard = (props) => {
           variants={itemVariants}
         >
           <div className='card-container__header bg-success'>
-            Month Perfs Total: 0
+            Latest creditcard depoist
           </div>
+          <CreditcardLog />
         </motion.div>
         <motion.div
           className='card-container dashboard__card-item'
@@ -70,12 +74,16 @@ const Dashboard = (props) => {
           variants={itemVariants}
         >
           <div className='card-container__header bg-info'>Last Desposits</div>
+          <DepositLogs />
         </motion.div>
       </motion.div>
     </div>
   );
 };
 const mapStateToProps = (state) => {
-  return { user: state.userReducer };
+  return {
+    customer: state.customerReducer,
+    user: state.userReducer,
+  };
 };
 export default connect(mapStateToProps)(Dashboard);

@@ -59,9 +59,25 @@ const OffersRequets = (props) => {
   const renderButtons = (isAfter, group, offer) => {
     if (isAfter) {
       return (
-        <td colspan='2' className='color-warning text-align-center font-size-2'>
-          la date limite est terminée
-        </td>
+        <React.Fragment>
+          <td
+            colspan='2'
+            style={{ textAlign: 'center' }}
+            className='bg-warning'
+          >
+            <button
+              className='button bg-warning'
+              onClick={() => deleteOffer(group, offer._id)}
+              style={{
+                marginLeft: '5px',
+
+                color: 'white',
+              }}
+            >
+              la date limite est terminée (Delete offer)
+            </button>
+          </td>
+        </React.Fragment>
       );
     } else {
       return (

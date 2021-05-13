@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 const CustomerLogItem = ({ log, index }) => {
-  console.log(index);
   const homepageLink = `/backoffice/customers/details/${log.customer._id}`;
   const date =
     index === -1 ? 'Date' : moment(log.createdAt).format('DD-MM-YYYY HH:mm:ss');
@@ -17,7 +16,7 @@ const CustomerLogItem = ({ log, index }) => {
         <div>
           <Link to={homepageLink} className='link'>
             {log.customer.firstName} {log.customer.lastName}
-          </Link>{' '}
+          </Link>
         </div>
       ) : (
         <div>

@@ -14,6 +14,17 @@ const getResponse = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  const id = req.params.id;
+  const data = await CreditCardHistory.find({})
+    .populate('employeeId')
+    .limit(10)
+    .sort({ _id: 'desc' });
+
+  res.send(data);
+};
+
 module.exports = {
   getResponse,
+  getAll,
 };

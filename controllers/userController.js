@@ -18,7 +18,6 @@ const initLogin = async (req, res) => {
       req.body.password
     );
 
-    (' here');
     const token = await user.generateAuthToken();
     res
       .status(202)

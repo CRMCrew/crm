@@ -9,7 +9,7 @@ import { logOut } from '../../../actions/userActions';
 const Header = (props) => {
   const { user } = props;
   const userName = `${user.firstName} ${user.lastName}`;
-  console.log('header', props);
+
   const history = useHistory();
   useEffect(() => {}, []);
   const logOut = () => {

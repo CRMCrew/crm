@@ -256,12 +256,26 @@ ul {
   height: 0;
 }
 
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
 
+.align-items-center {
+  align-items: center;
+}
+.direction-column {
+  flex-direction: column !important;
+}
 .rounded {
   border-radius: 0.7rem;
 }

@@ -4,6 +4,11 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const CreditSchema = new mongoose.Schema(
   {
     user: { type: String },
+    employeeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Customer',
+      required: true,
+    },
     wallet_address: { type: String },
     crypto: { type: String },
     fiat: { type: String },

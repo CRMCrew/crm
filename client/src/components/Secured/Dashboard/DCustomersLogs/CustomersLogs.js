@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
+
 import { connect } from 'react-redux';
 import CustomerLogItem from './CustomerLogItem';
 import api from '../../../../apis/api';

@@ -12,14 +12,34 @@ const deleteComment = async (req, res) => {
   res.send(data);
 };
 
-const getAllByOwner = async (req, res) => {
+const getWitdrawById = async (req, res) => {
   const id = req.params.id;
-  const data = await Withdraw.getAllByOwner({ owner: id });
-  data;
+  const data = await Withdraw.findOne({ owner: id });
+
   res.send(data);
 };
+
+const getAll = async (req, res) => {
+  const id = req.params.id;
+  const data = await Withdraw.find({})
+    .populate('owner')
+    .limit(10)
+    .sort({ _id: 'desc' });
+
+  res.send(data);
+};
+
+const update = async (req, res) => {
+  const p = req.body;
+  const data = await Withdraw.updateOne({ _id: p._id }, p);
+
+  res.send(data);
+};
+
 module.exports = {
   save,
   deleteComment,
-  getAllByOwner,
+  getWitdrawById,
+  getAll,
+  update,
 };

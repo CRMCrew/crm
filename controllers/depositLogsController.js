@@ -26,7 +26,21 @@ const getByCusomer = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  const resposne = await DepositLogs.find()
+    .limit(10)
+    .populate('user')
+    .populate('customer')
+    .sort({ _id: 'desc' });
+  res.status(200).json(resposne);
+  try {
+  } catch (err) {
+    res.status(400).send({ error: err });
+  }
+};
+
 module.exports = {
   saveDepositLogs,
   getByCusomer,
+  getAll,
 };

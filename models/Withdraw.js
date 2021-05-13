@@ -8,6 +8,7 @@ const withdrawSchema = new mongoose.Schema(
       ref: 'Customer',
       required: true,
     },
+    status: { type: String, defaultValue: 'pending' },
   },
   {
     timestamps: true,
