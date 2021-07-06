@@ -19,6 +19,7 @@ const commentSchema = new mongoose.Schema(
   }
 );
 
+
 commentSchema.statics.getAllByOwner = async (filters = {}) => {
   const customers = await Comment.find(filters).populate('addedBy');
   return customers;

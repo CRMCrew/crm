@@ -59,6 +59,7 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     document.title = 'Sa Sinef';
+    console.log('test');
   }, []);
 
   useEffect(() => {

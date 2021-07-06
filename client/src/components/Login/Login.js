@@ -59,7 +59,8 @@ const Login = (props) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    document.title = 'Sa Sinef';
+    document.title = 'Sa 2Sinef';
+    console.log('test');
   }, []);
 
   useEffect(() => {
