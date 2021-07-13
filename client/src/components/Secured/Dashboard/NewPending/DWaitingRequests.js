@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import api from '../../../../apis/api';
 import { formatMoney } from '../../../../utils/formatting';
-const DWaitingRequests = () => {
+const DWaitingRequests = ({ user }) => {
   const [groups, setGroups] = useState(null);
 
   useEffect(() => {
@@ -12,8 +13,14 @@ const DWaitingRequests = () => {
         limit: 10,
         status: 0,
       });
-
-      setGroups(data);
+      console.log(data);
+      setGroups(
+        data.filter(
+          (x) =>
+            x.customer.owner?._id === user._id ||
+            user.role.type.toString().toLowerCase() === 'admin'
+        )
+      );
     };
     getData();
   }, []);
@@ -70,4 +77,11 @@ const DWaitingRequests = () => {
     </div>
   );
 };
-export default DWaitingRequests;
+
+const propToState = (state) => {
+  return {
+    user: state.userReducer,
+  };
+};
+
+export default connect(propToState)(DWaitingRequests);
