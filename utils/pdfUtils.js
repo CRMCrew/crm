@@ -16,34 +16,37 @@ const savePdf = (pdfTemplate, fileName) => {
     });
 };
 
-// const reCreatePDF = async () => {
-//         const customers = await Customer.find().populate({ path: 'inventories', populate: { path: 'inventory' } });
+const reCreatePDF = async () => {
+  return;
+  const customers = await Customer.find().populate({
+    path: 'inventories',
+    populate: { path: 'inventory' },
+  });
 
-//         customers.forEach((customer) => {
-//                 if (customer.inventories.length > 0) {
-//                         const groups = customer.inventories;
-//                         groups.forEach((group) => {
-//                                 const items = group.inventory.items;
-//                                 const originalPrice = items[3].text;
-//                                 const params = {
-//                                         itemId: group._id,
-//                                         customerId: customer._id,
-//                                         itemName: `${items[0].text} ${items[1].text} ${items[2].text}`,
-//                                         date: "test",
-//                                         price: originalPrice,
-//                                         factureId:group._id,
-//                                         ville: customer.ville,
-//                                         country: customer.country,
-//                                         postalCode: customer.postalCode,
-//                                         phone: customer.phone,
-//                                         userName: `${customer.firstName} ${customer.lastName}`,
-//                                 }
-//                                 savePdf(template(params), group._id)
-//                         })
-//                 }
-//         })
-
-// }
+  customers.forEach((customer) => {
+    if (customer.inventories.length > 0) {
+      const groups = customer.inventories;
+      groups.forEach((group) => {
+        const items = group.inventory.items;
+        const originalPrice = items[3].text;
+        const params = {
+          itemId: group._id,
+          customerId: customer._id,
+          itemName: `${items[0].text} ${items[1].text} ${items[2].text}`,
+          date: 'test',
+          price: originalPrice,
+          factureId: group._id,
+          ville: customer.ville,
+          country: customer.country,
+          postalCode: customer.postalCode,
+          phone: customer.phone,
+          userName: `${customer.firstName} ${customer.lastName}`,
+        };
+        savePdf(template(params), group._id);
+      });
+    }
+  });
+};
 
 module.exports = {
   savePdf,
