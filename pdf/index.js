@@ -92,9 +92,10 @@ module.exports = ({
         text-align: center !important;
         }
   
-  
+        
         }
-        .company-details tr { 
+        .test{}
+        .company-details tr {
           padding:0;
           height:10px;
         }
