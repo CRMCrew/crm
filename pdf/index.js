@@ -133,7 +133,7 @@ module.exports = ({
                 <tr>
                   <td class="title">
                     <img
-                      src="https://crm-server-001.herokuapp.com/static/media/logo.png"
+                      src="https://www.sa-sinef.com/logo.png"
                       style="width: 100%; max-width: 156px"
                     />
                   </td>
