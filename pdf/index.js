@@ -133,7 +133,7 @@ module.exports = ({
                 <tr>
                   <td class="title">
                     <img
-                      src="https://crm-server-001.herokuapp.com/logo.png"
+                      src="https://crm-server-001.herokuapp.com/static/media/logo.9b28b29e.png"
                       style="width: 100%; max-width: 156px"
                     />
                   </td>
