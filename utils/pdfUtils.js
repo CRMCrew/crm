@@ -17,7 +17,6 @@ const savePdf = (pdfTemplate, fileName) => {
 };
 
 const reCreatePDF = async () => {
-  return;
   const customers = await Customer.find().populate({
     path: 'inventories',
     populate: { path: 'inventory' },

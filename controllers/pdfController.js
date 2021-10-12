@@ -9,8 +9,8 @@ const save = async (req, res) => {
 };
 
 const get = async (req, res) => {
+  console.log('here');
   const { customerId, itemId } = req.params;
-
   const dir = `${appDir}/pdf/files/${itemId}.pdf`;
   res.sendFile(dir);
 };
