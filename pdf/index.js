@@ -132,10 +132,7 @@ module.exports = ({
               <table>
                 <tr>
                   <td class="title">
-                    <img
-                      src="https://crm-server-001.herokuapp.com/static/media/logo.9b28b29e.png"
-                      style="width: 100%; max-width: 156px"
-                    />
+                  <img src="http://www.hitlab.me/pdf-footer.jpg" alt="">
                   </td>
                   <td
                     style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
