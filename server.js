@@ -29,7 +29,7 @@ const origin = process.env.ORIGIN || 'http://localhost:3000';
 
 // re creating pd
 reCreatePDF();
-
+console.log('fuck me');
 app.use(
   cors({
     credentials: true,
