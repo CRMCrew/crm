@@ -27,8 +27,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const origin = process.env.ORIGIN || 'http://localhost:3000';
 
-// re creating pdf
-// git reCreatePDF();
+// re creating pd
+reCreatePDF();
 
 app.use(
   cors({
