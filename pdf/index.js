@@ -132,7 +132,7 @@ module.exports = ({
               <table>
                 <tr>
                   <td class="title">
-                  <img src="http://www.hitlab.me/pdf-footer.jpg" alt="">
+                  <img src="https://www.sa-sinef.com/logo.png" alt="">
                   </td>
                   <td
                     style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
