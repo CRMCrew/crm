@@ -132,7 +132,7 @@ module.exports = ({
               <table>
                 <tr>
                   <td class="title">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/hitlab-test.appspot.com/o/images%2Flogo.png?alt=media&token=be49ac01-004b-4a60-9a29-c8ecd759e5ea" alt="">
+                  <img src="https://www.sa-sinef.com/logo.png" alt="">
                   </td>
                   <td
                     style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
