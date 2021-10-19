@@ -126,13 +126,13 @@ module.exports = ({
     </head>
     <body>
       <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
+        <table cellpadding="0" cellspacing="
           <tr class="top">
             <td colspan="2">
               <table>
                 <tr>
                   <td class="title">
-                  <img src="https://www.sa-sinef.com/logo.png" alt="">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/hitlab-test.appspot.com/o/images%2Flogo.png?alt=media&token=b8c55245-9c0a-4c54-b0ce-6d58a3d732f4" alt="">
                   </td>
                   <td
                     style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
