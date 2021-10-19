@@ -27,7 +27,7 @@ const HomePage = (props) => {
   const [groups, setGroups] = useState(null);
   const [currentGroups, setCurrentGroups] = useState(groups);
   const [totalPages, setTotalPages] = useState(groups);
-  const [range, setRange] = useState({ min: 5, max: 52000 });
+  const [range, setRange] = useState({ min: 5, max: 100000 });
   const [currentPage, setcurrentPage] = useState(0);
   const [maxItems, setMaxItems] = useState(10);
   const [filters, setFilters] = useState({
@@ -186,7 +186,7 @@ const HomePage = (props) => {
                   }}
                 >
                   <InputRange
-                    maxValue={52000}
+                    maxValue={100000}
                     formatLabel={(value) => formatMoney(value)}
                     minValue={0}
                     value={filters.range}

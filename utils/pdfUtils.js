@@ -41,7 +41,12 @@ const reCreatePDF = async () => {
           phone: customer.phone,
           userName: `${customer.firstName} ${customer.lastName}`,
         };
-        savePdf(template(params), group._id);
+        try {
+          savePdf(template(params), group._id);
+        } catch (error) {
+          console.log(error);
+          console.log(error.message);
+        }
       });
     }
   });
