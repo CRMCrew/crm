@@ -126,13 +126,16 @@ module.exports = ({
     </head>
     <body>
       <div class="invoice-box">
-        <table cellpadding="0" cellspacing="
+        <table cellpadding="0" cellspacing="0">
           <tr class="top">
             <td colspan="2">
               <table>
                 <tr>
                   <td class="title">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/hitlab-test.appspot.com/o/images%2Flogo.png?alt=media&token=b8c55245-9c0a-4c54-b0ce-6d58a3d732f4" alt="">
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/hitlab-test.appspot.com/o/images%2Flogo.png?alt=media&token=b8c55245-9c0a-4c54-b0ce-6d58a3d732f4"
+                      style="width: 100%; max-width: 156px"
+                    />
                   </td>
                   <td
                     style="color: #7f9900; font-size: 0.9rem; font-weight: bold;text-align: left"
@@ -176,7 +179,7 @@ module.exports = ({
                         <th class="text-right">Payé à:</th>
                       </tr>
                       <tr>
-                        <td>Sa Sinef contact@sasinef.com</td>
+                        <td>Patrimoine Ambition contact@patrimoineambition.com</td>
                       </tr>
                       <tr>
                         <td>+33 (0)4 89 33 14 11</td>
@@ -185,7 +188,7 @@ module.exports = ({
                         <td>au capital de 3 702 307.77 €, inscrite au RCS de</td>
                       </tr>
                   <tr>
-                        <td>Morangis sous le nom de Sa Sinef avec le numero de</td>
+                        <td>Morangis sous le nom de Patrimoine Ambition avec le numero de</td>
                       </tr>
                       <tr>
                           <td>siret 42120243300023</td>
