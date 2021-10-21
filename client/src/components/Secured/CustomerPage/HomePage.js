@@ -12,6 +12,7 @@ import Pagination from './Pagination';
 import FormModel from '../../FormModel/FormModel';
 import MaCave from './MaCave/MaCave';
 import UserDetails from './UserDetails/UserDetailsMenu';
+import BarChart from '../../BarChart/BarChart';
 
 import {
   containerVariants,
@@ -27,7 +28,7 @@ const HomePage = (props) => {
   const [groups, setGroups] = useState(null);
   const [currentGroups, setCurrentGroups] = useState(groups);
   const [totalPages, setTotalPages] = useState(groups);
-  const [range, setRange] = useState({ min: 5, max: 100000 });
+  const [range, setRange] = useState({ min: 5, max: 1000000 });
   const [currentPage, setcurrentPage] = useState(0);
   const [maxItems, setMaxItems] = useState(10);
   const [filters, setFilters] = useState({
@@ -186,7 +187,7 @@ const HomePage = (props) => {
                   }}
                 >
                   <InputRange
-                    maxValue={100000}
+                    maxValue={1000000}
                     formatLabel={(value) => formatMoney(value)}
                     minValue={0}
                     value={filters.range}
@@ -244,6 +245,10 @@ const HomePage = (props) => {
           </div>
         </motion.div>
       </motion.div>
+      <div className='cards-container__card tilt'>
+        <BarChart customer={props.customer} />
+      </div>
+      <div></div>
       <FormModel isVisible={isVisible}>
         <div className='home-page-container__customer_add_item'>
           <h2 className='add-item-header'>CONFIRMATION REQUISE</h2>
