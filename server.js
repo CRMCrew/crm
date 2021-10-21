@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 const origin = process.env.ORIGIN || 'http://localhost:3000';
 
 // re creating pd
-reCreatePDF();
+// reCreatePDF();
 
 app.use(
   cors({
