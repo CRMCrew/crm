@@ -12,6 +12,7 @@ import SelectCampaign from '../../SelectCampaign';
 import SelectStatus from '../../SelectStatus';
 import Deposits from './Deposits';
 import { login } from '../../../actions/customersActions';
+import CustomerInventories from './CustomerInventoris/CustomerInventories';
 
 const CustomersDetails = (props) => {
   const id = props.match.params.id;
@@ -19,6 +20,8 @@ const CustomersDetails = (props) => {
   const [selectedTab, setSelectedTab] = useState('1');
   const [customer, setCustomer] = useState(null);
   const [comments, setComments] = useState(null);
+  const [inventories, setInventories] = useState([]);
+
   const history = useHistory();
   const getUser = async () => {
     try {
@@ -51,7 +54,7 @@ const CustomersDetails = (props) => {
     if (customer.userPassword !== '') {
       updates = { ...updates, userPassword: customer.userPassword };
     }
-    console.log('updates', updates);
+
     await api.patch('customers/update/', {
       _id: customer._id,
       updates: updates,
@@ -60,6 +63,16 @@ const CustomersDetails = (props) => {
     toast.info('🤘 User details updated!');
   };
   useEffect(() => {
+    const getCustomerInventories = async () => {
+      const { data } = await api.post('customers-inventory/get', {
+        customer: id,
+        status: 1,
+      });
+
+      setInventories(data);
+      console.log('inventory', data);
+    };
+    getCustomerInventories();
     getUser();
     document.title = 'Sa Sinef - Customer Details';
   }, []);
@@ -288,8 +301,9 @@ const CustomersDetails = (props) => {
 
             <div className='card-container  card-container__card-item'>
               <div className='card-container__header bg-turq'>
-                <i className='far fa-credit-card'></i> Cards
+                <i className='far fa-credit-card'></i> Ma Cave Bottle list
               </div>
+              <CustomerInventories inventories={inventories} />
             </div>
           </div>
           <div className='customers-details__extras'>

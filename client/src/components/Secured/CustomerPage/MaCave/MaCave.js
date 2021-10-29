@@ -4,7 +4,8 @@ import ApprovedInventoryRequests from './ApprovedInventoryRequests';
 import OffersRequets from './OffersRequets';
 import RetraitsRequests from './RetraitsRequests';
 import VentsRequets from './VentsRequets';
-
+import api from '../../../../apis/api';
+import moment from 'moment';
 const MaCave = ({ headers, inventories }) => {
   const [menu, setMenu] = useState(0);
   const renderIsSelected = (x) => {
@@ -13,6 +14,9 @@ const MaCave = ({ headers, inventories }) => {
 
   useEffect(() => {
     document.body.classList.add('mycave');
+
+    // getting current customer inventories
+
     return () => {
       document.body.classList.remove('mycave');
     };

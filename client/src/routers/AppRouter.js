@@ -20,7 +20,6 @@ import IsLogged from '../components/IsLogged/IsLogged';
 
 const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();
-
   const authRender = () => {
     console.log('auth router');
     return (

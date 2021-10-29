@@ -42,6 +42,7 @@ const DWaitingRequests = ({ user }) => {
       groups &&
       groups.map((group, index) => {
         const homepageLink = `/backoffice/customers/details/${group.customer._id}`;
+        console.log(group.customer._id);
         const price = formatMoney(group.inventory.items[3].text);
         const balance = formatMoney(group.customer.balance);
         const date = moment(group.expiration).format('DD-MM-YY HH:mm:ss');
@@ -57,7 +58,6 @@ const DWaitingRequests = ({ user }) => {
             </div>
             <div>{balance}</div>
             <div>
-              {' '}
               <Link to='/backoffice/manage/' className='link'>
                 {group.inventory.items[0].text}
               </Link>
