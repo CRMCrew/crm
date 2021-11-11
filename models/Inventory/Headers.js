@@ -17,7 +17,5 @@ const HeadersSchema = new mongoose.Schema(
   }
 );
 
-const togo = () => {};
-
 const Headers = mongoose.model('Headers', HeadersSchema);
 module.exports = Headers;
