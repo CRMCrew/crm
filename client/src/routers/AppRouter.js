@@ -42,6 +42,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
                 path='/backoffice/customers'
                 component={Customers}
               />
+
               <PrivateRoute
                 exact
                 path='/backoffice/manage/'

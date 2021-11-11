@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const CustomersInventorySchema = new mongoose.Schema(
   {
     customer: {
@@ -16,6 +17,12 @@ const CustomersInventorySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+CustomersInventorySchema.virtual('salesScheduler', {
+  ref: 'SalesScheduler',
+  localField: '_id',
+  foreignField: 'bottleId',
+});
 
 const CustomersInventory = mongoose.model(
   'CustomersInventory',

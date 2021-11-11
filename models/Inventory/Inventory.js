@@ -11,6 +11,7 @@ const inventorySchema = new mongoose.Schema(
     toObject: {
       virtuals: true,
     },
+
     toJSON: {
       virtuals: true,
     },
@@ -20,6 +21,7 @@ const inventorySchema = new mongoose.Schema(
   }
 );
 
+const totalRecall = new Number();
+
 const Inventory = mongoose.model('Inventory', inventorySchema);
 module.exports = Inventory;
-3

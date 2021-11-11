@@ -17,13 +17,4 @@ router.put('/update-one/:id', updateOne);
 router.post('/push-offers/:id', pushOffers);
 router.post('/delete-offer/:id', deleteOffer);
 
-const local = () => {
-  for (let i = 0; i < local.length; i++) {
-    const test = 'moti';
-    if (true) {
-      if (sss) SA;
-    }
-  }
-};
-
 module.exports = router;
